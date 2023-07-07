@@ -1,0 +1,18 @@
+#!/bin/bash
+if [[ -z "$1" ]]; then
+    echo "need 3 arguments  e.g. ../3p0  Jam1_3GeV_b0-14_RQMDS__bcut0_14_hist title" 
+    exit
+fi
+FILE1=$2
+FILE2=".root"
+FILE3="$FILE1$FILE2"
+echo $FILE3
+// we continue to use plotjam1xy6.C
+root -q plotjam1xy6.C\(\"$1\"\,\"$FILE3\"\,\"$3\"\)
+mv -f eps3_b.png ./pngxyeps/$2_eps3_b.png
+mv -f eps3_pt.png ./pngxyeps/$2_eps3_pt.png
+mv -f eps3_rapidity.png ./pngxyeps/$2_eps3_rapidity.png
+mv -f xy.png ./pngxyeps/$2_xy.png
+exit
+
+

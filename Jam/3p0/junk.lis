@@ -1,0 +1,444 @@
+   ------------------------------------------------------------------
+  | Welcome to ROOT 6.26/08                        https://root.cern |
+  | (c) 1995-2021, The ROOT Team; conception: R. Brun, F. Rademakers |
+  | Built for linuxarm64 on Nov 03 2022, 20:42:00                    |
+  | From heads/latest-stable@49ba2d46                                |
+  | With c++ (Ubuntu 11.3.0-1ubuntu1~22.04) 11.3.0                   |
+  | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q'       |
+   ------------------------------------------------------------------
+
+
+Processing ../plotit/plotallmomprofiles.C("Jam1_3GeV_b0-14_RQMDRMF_NS2_all_bcut0_14_ana7_hist.root",0.,5.)...
+Input root file:  Jam1_3GeV_b0-14_RQMDRMF_NS2_all_bcut0_14_ana7_hist.root
+ made histstr = cent_binm4 xvsyprof_px_cent_binm4 xvsyprof_py_cent_binm4 xvsyprof_pt_cent_binm4
+ DUMP a SLICE in pt
+Input hist:  cent_binm4
+ hist3Dpxstr=rvsphivspr_3D_cent_binm4
+rvsphivspr_3D_cent_binm4 exists 
+ hist3Dpystr=rvsphivspth_3D_cent_binm4
+rvsphivspth_3D_cent_binm4 exists 
+ hist3Dpzstr=rvsphivspz_3D_cent_binm4
+rvsphivspz_3D_cent_binm4 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of cent_binm4
+ ************WRITING icentrap=0
+ made histstr = cent_binm3 xvsyprof_px_cent_binm3 xvsyprof_py_cent_binm3 xvsyprof_pt_cent_binm3
+ DUMP a SLICE in pt
+Input hist:  cent_binm3
+ hist3Dpxstr=rvsphivspr_3D_cent_binm3
+rvsphivspr_3D_cent_binm3 exists 
+ hist3Dpystr=rvsphivspth_3D_cent_binm3
+rvsphivspth_3D_cent_binm3 exists 
+ hist3Dpzstr=rvsphivspz_3D_cent_binm3
+rvsphivspz_3D_cent_binm3 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of cent_binm3
+ ************WRITING icentrap=1
+ made histstr = cent_binm2 xvsyprof_px_cent_binm2 xvsyprof_py_cent_binm2 xvsyprof_pt_cent_binm2
+ DUMP a SLICE in pt
+Input hist:  cent_binm2
+ hist3Dpxstr=rvsphivspr_3D_cent_binm2
+rvsphivspr_3D_cent_binm2 exists 
+ hist3Dpystr=rvsphivspth_3D_cent_binm2
+rvsphivspth_3D_cent_binm2 exists 
+ hist3Dpzstr=rvsphivspz_3D_cent_binm2
+rvsphivspz_3D_cent_binm2 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of cent_binm2
+ ************WRITING icentrap=2
+ made histstr = cent_binm1 xvsyprof_px_cent_binm1 xvsyprof_py_cent_binm1 xvsyprof_pt_cent_binm1
+ DUMP a SLICE in pt
+Input hist:  cent_binm1
+ hist3Dpxstr=rvsphivspr_3D_cent_binm1
+rvsphivspr_3D_cent_binm1 exists 
+ hist3Dpystr=rvsphivspth_3D_cent_binm1
+rvsphivspth_3D_cent_binm1 exists 
+ hist3Dpzstr=rvsphivspz_3D_cent_binm1
+rvsphivspz_3D_cent_binm1 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of cent_binm1
+ ************WRITING icentrap=3
+ made histstr = cent_bin0 xvsyprof_px_cent_bin0 xvsyprof_py_cent_bin0 xvsyprof_pt_cent_bin0
+ DUMP a SLICE in pt
+Input hist:  cent_bin0
+ hist3Dpxstr=rvsphivspr_3D_cent_bin0
+rvsphivspr_3D_cent_bin0 exists 
+ hist3Dpystr=rvsphivspth_3D_cent_bin0
+rvsphivspth_3D_cent_bin0 exists 
+ hist3Dpzstr=rvsphivspz_3D_cent_bin0
+rvsphivspz_3D_cent_bin0 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of cent_bin0
+ ************WRITING icentrap=4
+ made histstr = cent_binp1 xvsyprof_px_cent_binp1 xvsyprof_py_cent_binp1 xvsyprof_pt_cent_binp1
+ DUMP a SLICE in pt
+Input hist:  cent_binp1
+ hist3Dpxstr=rvsphivspr_3D_cent_binp1
+rvsphivspr_3D_cent_binp1 exists 
+ hist3Dpystr=rvsphivspth_3D_cent_binp1
+rvsphivspth_3D_cent_binp1 exists 
+ hist3Dpzstr=rvsphivspz_3D_cent_binp1
+rvsphivspz_3D_cent_binp1 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of cent_binp1
+ ************WRITING icentrap=5
+ made histstr = cent_binp2 xvsyprof_px_cent_binp2 xvsyprof_py_cent_binp2 xvsyprof_pt_cent_binp2
+ DUMP a SLICE in pt
+Input hist:  cent_binp2
+ hist3Dpxstr=rvsphivspr_3D_cent_binp2
+rvsphivspr_3D_cent_binp2 exists 
+ hist3Dpystr=rvsphivspth_3D_cent_binp2
+rvsphivspth_3D_cent_binp2 exists 
+ hist3Dpzstr=rvsphivspz_3D_cent_binp2
+rvsphivspz_3D_cent_binp2 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of cent_binp2
+ ************WRITING icentrap=6
+ made histstr = cent_binp3 xvsyprof_px_cent_binp3 xvsyprof_py_cent_binp3 xvsyprof_pt_cent_binp3
+ DUMP a SLICE in pt
+Input hist:  cent_binp3
+ hist3Dpxstr=rvsphivspr_3D_cent_binp3
+rvsphivspr_3D_cent_binp3 exists 
+ hist3Dpystr=rvsphivspth_3D_cent_binp3
+rvsphivspth_3D_cent_binp3 exists 
+ hist3Dpzstr=rvsphivspz_3D_cent_binp3
+rvsphivspz_3D_cent_binp3 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of cent_binp3
+ ************WRITING icentrap=7
+ made histstr = cent_binp4 xvsyprof_px_cent_binp4 xvsyprof_py_cent_binp4 xvsyprof_pt_cent_binp4
+ DUMP a SLICE in pt
+Input hist:  cent_binp4
+ hist3Dpxstr=rvsphivspr_3D_cent_binp4
+rvsphivspr_3D_cent_binp4 exists 
+ hist3Dpystr=rvsphivspth_3D_cent_binp4
+rvsphivspth_3D_cent_binp4 exists 
+ hist3Dpzstr=rvsphivspz_3D_cent_binp4
+rvsphivspz_3D_cent_binp4 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of cent_binp4
+ ************WRITING icentrap=8
+ made histstr = mid_binm4 xvsyprof_px_mid_binm4 xvsyprof_py_mid_binm4 xvsyprof_pt_mid_binm4
+ DUMP a SLICE in pt
+Input hist:  mid_binm4
+ hist3Dpxstr=rvsphivspr_3D_mid_binm4
+rvsphivspr_3D_mid_binm4 exists 
+ hist3Dpystr=rvsphivspth_3D_mid_binm4
+rvsphivspth_3D_mid_binm4 exists 
+ hist3Dpzstr=rvsphivspz_3D_mid_binm4
+rvsphivspz_3D_mid_binm4 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of mid_binm4
+ ************WRITING icentrap=9
+ made histstr = mid_binm3 xvsyprof_px_mid_binm3 xvsyprof_py_mid_binm3 xvsyprof_pt_mid_binm3
+ DUMP a SLICE in pt
+Input hist:  mid_binm3
+ hist3Dpxstr=rvsphivspr_3D_mid_binm3
+rvsphivspr_3D_mid_binm3 exists 
+ hist3Dpystr=rvsphivspth_3D_mid_binm3
+rvsphivspth_3D_mid_binm3 exists 
+ hist3Dpzstr=rvsphivspz_3D_mid_binm3
+rvsphivspz_3D_mid_binm3 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of mid_binm3
+ ************WRITING icentrap=10
+ made histstr = mid_binm2 xvsyprof_px_mid_binm2 xvsyprof_py_mid_binm2 xvsyprof_pt_mid_binm2
+ DUMP a SLICE in pt
+Input hist:  mid_binm2
+ hist3Dpxstr=rvsphivspr_3D_mid_binm2
+rvsphivspr_3D_mid_binm2 exists 
+ hist3Dpystr=rvsphivspth_3D_mid_binm2
+rvsphivspth_3D_mid_binm2 exists 
+ hist3Dpzstr=rvsphivspz_3D_mid_binm2
+rvsphivspz_3D_mid_binm2 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of mid_binm2
+ ************WRITING icentrap=11
+ made histstr = mid_binm1 xvsyprof_px_mid_binm1 xvsyprof_py_mid_binm1 xvsyprof_pt_mid_binm1
+ DUMP a SLICE in pt
+Input hist:  mid_binm1
+ hist3Dpxstr=rvsphivspr_3D_mid_binm1
+rvsphivspr_3D_mid_binm1 exists 
+ hist3Dpystr=rvsphivspth_3D_mid_binm1
+rvsphivspth_3D_mid_binm1 exists 
+ hist3Dpzstr=rvsphivspz_3D_mid_binm1
+rvsphivspz_3D_mid_binm1 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of mid_binm1
+ ************WRITING icentrap=12
+ made histstr = mid_bin0 xvsyprof_px_mid_bin0 xvsyprof_py_mid_bin0 xvsyprof_pt_mid_bin0
+ DUMP a SLICE in pt
+Input hist:  mid_bin0
+ hist3Dpxstr=rvsphivspr_3D_mid_bin0
+rvsphivspr_3D_mid_bin0 exists 
+ hist3Dpystr=rvsphivspth_3D_mid_bin0
+rvsphivspth_3D_mid_bin0 exists 
+ hist3Dpzstr=rvsphivspz_3D_mid_bin0
+rvsphivspz_3D_mid_bin0 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of mid_bin0
+ ************WRITING icentrap=13
+ made histstr = mid_binp1 xvsyprof_px_mid_binp1 xvsyprof_py_mid_binp1 xvsyprof_pt_mid_binp1
+ DUMP a SLICE in pt
+Input hist:  mid_binp1
+ hist3Dpxstr=rvsphivspr_3D_mid_binp1
+rvsphivspr_3D_mid_binp1 exists 
+ hist3Dpystr=rvsphivspth_3D_mid_binp1
+rvsphivspth_3D_mid_binp1 exists 
+ hist3Dpzstr=rvsphivspz_3D_mid_binp1
+rvsphivspz_3D_mid_binp1 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of mid_binp1
+ ************WRITING icentrap=14
+ made histstr = mid_binp2 xvsyprof_px_mid_binp2 xvsyprof_py_mid_binp2 xvsyprof_pt_mid_binp2
+ DUMP a SLICE in pt
+Input hist:  mid_binp2
+ hist3Dpxstr=rvsphivspr_3D_mid_binp2
+rvsphivspr_3D_mid_binp2 exists 
+ hist3Dpystr=rvsphivspth_3D_mid_binp2
+rvsphivspth_3D_mid_binp2 exists 
+ hist3Dpzstr=rvsphivspz_3D_mid_binp2
+rvsphivspz_3D_mid_binp2 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of mid_binp2
+ ************WRITING icentrap=15
+ made histstr = mid_binp3 xvsyprof_px_mid_binp3 xvsyprof_py_mid_binp3 xvsyprof_pt_mid_binp3
+ DUMP a SLICE in pt
+Input hist:  mid_binp3
+ hist3Dpxstr=rvsphivspr_3D_mid_binp3
+rvsphivspr_3D_mid_binp3 exists 
+ hist3Dpystr=rvsphivspth_3D_mid_binp3
+rvsphivspth_3D_mid_binp3 exists 
+ hist3Dpzstr=rvsphivspz_3D_mid_binp3
+rvsphivspz_3D_mid_binp3 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of mid_binp3
+ ************WRITING icentrap=16
+ made histstr = mid_binp4 xvsyprof_px_mid_binp4 xvsyprof_py_mid_binp4 xvsyprof_pt_mid_binp4
+ DUMP a SLICE in pt
+Input hist:  mid_binp4
+ hist3Dpxstr=rvsphivspr_3D_mid_binp4
+rvsphivspr_3D_mid_binp4 exists 
+ hist3Dpystr=rvsphivspth_3D_mid_binp4
+rvsphivspth_3D_mid_binp4 exists 
+ hist3Dpzstr=rvsphivspz_3D_mid_binp4
+rvsphivspz_3D_mid_binp4 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of mid_binp4
+ ************WRITING icentrap=17
+ made histstr = periph_binm4 xvsyprof_px_periph_binm4 xvsyprof_py_periph_binm4 xvsyprof_pt_periph_binm4
+ DUMP a SLICE in pt
+Input hist:  periph_binm4
+ hist3Dpxstr=rvsphivspr_3D_periph_binm4
+rvsphivspr_3D_periph_binm4 exists 
+ hist3Dpystr=rvsphivspth_3D_periph_binm4
+rvsphivspth_3D_periph_binm4 exists 
+ hist3Dpzstr=rvsphivspz_3D_periph_binm4
+rvsphivspz_3D_periph_binm4 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of periph_binm4
+ ************WRITING icentrap=18
+ made histstr = periph_binm3 xvsyprof_px_periph_binm3 xvsyprof_py_periph_binm3 xvsyprof_pt_periph_binm3
+ DUMP a SLICE in pt
+Input hist:  periph_binm3
+ hist3Dpxstr=rvsphivspr_3D_periph_binm3
+rvsphivspr_3D_periph_binm3 exists 
+ hist3Dpystr=rvsphivspth_3D_periph_binm3
+rvsphivspth_3D_periph_binm3 exists 
+ hist3Dpzstr=rvsphivspz_3D_periph_binm3
+rvsphivspz_3D_periph_binm3 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of periph_binm3
+ ************WRITING icentrap=19
+ made histstr = periph_binm2 xvsyprof_px_periph_binm2 xvsyprof_py_periph_binm2 xvsyprof_pt_periph_binm2
+ DUMP a SLICE in pt
+Input hist:  periph_binm2
+ hist3Dpxstr=rvsphivspr_3D_periph_binm2
+rvsphivspr_3D_periph_binm2 exists 
+ hist3Dpystr=rvsphivspth_3D_periph_binm2
+rvsphivspth_3D_periph_binm2 exists 
+ hist3Dpzstr=rvsphivspz_3D_periph_binm2
+rvsphivspz_3D_periph_binm2 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of periph_binm2
+ ************WRITING icentrap=20
+ made histstr = periph_binm1 xvsyprof_px_periph_binm1 xvsyprof_py_periph_binm1 xvsyprof_pt_periph_binm1
+ DUMP a SLICE in pt
+Input hist:  periph_binm1
+ hist3Dpxstr=rvsphivspr_3D_periph_binm1
+rvsphivspr_3D_periph_binm1 exists 
+ hist3Dpystr=rvsphivspth_3D_periph_binm1
+rvsphivspth_3D_periph_binm1 exists 
+ hist3Dpzstr=rvsphivspz_3D_periph_binm1
+rvsphivspz_3D_periph_binm1 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of periph_binm1
+ ************WRITING icentrap=21
+ made histstr = periph_bin0 xvsyprof_px_periph_bin0 xvsyprof_py_periph_bin0 xvsyprof_pt_periph_bin0
+ DUMP a SLICE in pt
+Input hist:  periph_bin0
+ hist3Dpxstr=rvsphivspr_3D_periph_bin0
+rvsphivspr_3D_periph_bin0 exists 
+ hist3Dpystr=rvsphivspth_3D_periph_bin0
+rvsphivspth_3D_periph_bin0 exists 
+ hist3Dpzstr=rvsphivspz_3D_periph_bin0
+rvsphivspz_3D_periph_bin0 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of periph_bin0
+ ************WRITING icentrap=22
+ made histstr = periph_binp1 xvsyprof_px_periph_binp1 xvsyprof_py_periph_binp1 xvsyprof_pt_periph_binp1
+ DUMP a SLICE in pt
+Input hist:  periph_binp1
+ hist3Dpxstr=rvsphivspr_3D_periph_binp1
+rvsphivspr_3D_periph_binp1 exists 
+ hist3Dpystr=rvsphivspth_3D_periph_binp1
+rvsphivspth_3D_periph_binp1 exists 
+ hist3Dpzstr=rvsphivspz_3D_periph_binp1
+rvsphivspz_3D_periph_binp1 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of periph_binp1
+ ************WRITING icentrap=23
+ made histstr = periph_binp2 xvsyprof_px_periph_binp2 xvsyprof_py_periph_binp2 xvsyprof_pt_periph_binp2
+ DUMP a SLICE in pt
+Input hist:  periph_binp2
+ hist3Dpxstr=rvsphivspr_3D_periph_binp2
+rvsphivspr_3D_periph_binp2 exists 
+ hist3Dpystr=rvsphivspth_3D_periph_binp2
+rvsphivspth_3D_periph_binp2 exists 
+ hist3Dpzstr=rvsphivspz_3D_periph_binp2
+rvsphivspz_3D_periph_binp2 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of periph_binp2
+ ************WRITING icentrap=24
+ made histstr = periph_binp3 xvsyprof_px_periph_binp3 xvsyprof_py_periph_binp3 xvsyprof_pt_periph_binp3
+ DUMP a SLICE in pt
+Input hist:  periph_binp3
+ hist3Dpxstr=rvsphivspr_3D_periph_binp3
+rvsphivspr_3D_periph_binp3 exists 
+ hist3Dpystr=rvsphivspth_3D_periph_binp3
+rvsphivspth_3D_periph_binp3 exists 
+ hist3Dpzstr=rvsphivspz_3D_periph_binp3
+rvsphivspz_3D_periph_binp3 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of periph_binp3
+ ************WRITING icentrap=25
+ made histstr = periph_binp4 xvsyprof_px_periph_binp4 xvsyprof_py_periph_binp4 xvsyprof_pt_periph_binp4
+ DUMP a SLICE in pt
+Input hist:  periph_binp4
+ hist3Dpxstr=rvsphivspr_3D_periph_binp4
+rvsphivspr_3D_periph_binp4 exists 
+ hist3Dpystr=rvsphivspth_3D_periph_binp4
+rvsphivspth_3D_periph_binp4 exists 
+ hist3Dpzstr=rvsphivspz_3D_periph_binp4
+rvsphivspz_3D_periph_binp4 exists 
+ nx xmin xmax=60 -60 60
+ ny ymin ymax=60 -60 60
+ nz zmin zmax=20 -6.93889e-18 2
+ ptmin iptmin ptmax iptmax=0 1 5 21
+ makeing hists prof2D 
+ end of periph_binp4
+ ************WRITING icentrap=26

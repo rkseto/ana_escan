@@ -1,0 +1,33 @@
+
+  TCanvas *c5 = new TCanvas("c5", "Canvas", 1000, 1000);
+  myraphistodd_ar[0]->GetXaxis()->SetRangeUser(-1.,1.);
+  myraphistodd_ar[0]->GetYaxis()->SetRangeUser(-0.025,0.025);
+  myraphistodd_ar[0]->SetLineColor(kRed);
+  myraphistodd_ar[0]->SetLineWidth(3);
+  myraphistodd_ar[0]->Draw("hist L p");
+  for (int i=1; i<nfiles; i++){
+    if(i==1)myraphistodd_ar[i]->SetLineColor(kBlue);
+    if(i==2)myraphistodd_ar[i]->SetLineColor(kMagenta);
+    if(i==3)myraphistodd_ar[i]->SetLineColor(kBlack);
+    if(i==4)myraphistodd_ar[i]->SetLineColor(kGray);
+    if(i==5)myraphistodd_ar[i]->SetLineColor(kGreen);
+    myraphistodd_ar[i]->SetLineWidth(3);
+    myraphistodd_ar[i]->Draw("SAME hist L p");
+  }
+
+  TLegend *prLegend = new TLegend(0.19, 0.10, 0.39, 0.3);
+  prLegend->AddEntry(myraphistodd_ar[0], "3GeV");
+  prLegend->AddEntry(myraphistodd_ar[1], "3.2GeV");
+  prLegend->AddEntry(myraphistodd_ar[2], "3.5GeV");
+  prLegend->AddEntry(myraphistodd_ar[3], "3.9GeV");
+  prLegend->AddEntry(myraphistodd_ar[4], "4.5GeV");
+  prLegend->AddEntry(myraphistodd_ar[5], "3GeV cascade");
+  prLegend->SetBorderSize(0);
+  prLegend->SetFillColorAlpha(0,0);
+  prLegend->SetTextSize(0.04);
+  prLegend->Draw();
+  TLine *zeroLine_y_pr = new TLine(-1, 0, 1, 0);
+  zeroLine_y_pr->SetLineStyle(9);
+  zeroLine_y_pr->SetLineWidth(3);
+  zeroLine_y_pr->Draw();
+  c5->Print("v3_Jam_all_rapidity_odd.png");

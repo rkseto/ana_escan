@@ -1,0 +1,209 @@
+// for looking at v3
+// load c++ and c headers
+// r phi z is really x y  -> rvsphivspr means xvsyvspx
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <vector>
+
+#include "TSystem.h"
+#include "TChain.h"
+#include "TH1D.h"
+#include "TCanvas.h"
+#include "TPad.h"
+#include "TF1.h"
+#include "TH1.h"
+#include "TH2.h"
+#include "TProfile.h"
+#include "TProfile2D.h"
+#include "TProfile3D.h"
+#include "TFrame.h"
+#include "TROOT.h"
+#include "TLeaf.h"
+#include "TRandom.h"
+#include "TRandom3.h"
+#include "TFormula.h"
+#include "TPaveLabel.h"
+#include "TFile.h"
+#include "TMath.h"
+#include "TLeaf.h"
+#include "TComplex.h"
+
+#include "TDatabasePDG.h"
+#include "TParticlePDG.h"
+#include "TLorentzVector.h"
+
+//using namespace std;
+
+void plt(){
+  //  void plt(string cmdstr = "HELP"){
+
+  TCanvas *canv[10];
+  int canvnumb=-1;
+  //  string canvname;
+  //  canvname=Form("canvas%d",canvnumb);
+  
+  string centstr_ar[3]={"cent","mid","periph"};
+  string rapbinstr_ar[9]={"binm4","binm3","binm2","binm1","bin0","binp1","binp2","binp3","binp4"};
+  string cmdstr = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";  
+
+  int defpad=0;
+  int nx=1;
+  int ny=1;
+  int xsize=500;
+  int ysize=500;
+  
+  int icent=1;       // 0: cent 1: mid 2: periph
+  int irapbin=7;     // 0-8
+  double xlow=-20;
+  double xhigh=20;
+  double ylow=-10;
+  double yhigh=10;
+
+  ifstream readme; 
+
+  bool drawit = true;
+  
+  //  TCanvas *c1 = new TCanvas("c1","c1",0,0,500,500); // default canvas
+  canv[0] = new TCanvas("canv0","canv0",0,0,500,500); // default canvas
+  canvnumb=0;
+  
+  for(int iii=0; iii<10000; iii++){  
+    //--------------------------------------------------------------
+    drawit = true;    
+    cout<<" give command: ";
+    std::getline(std::cin, cmdstr);
+    //    cout<<" command was: "<<cmdstr<<endl;
+    std::istringstream iss(cmdstr);
+    std::string cmds1, cmds2, cmds3, cmds4, cmds5, cmds6 ;
+    iss>> cmds1>> cmds2>> cmds3>> cmds4>> cmds5>> cmds6 ;
+    
+    if(cmds1=="q" || cmds1=="Q"){cout<<" exiting "<<endl;exit(1);}
+    if(cmds1=="h" || cmds1=="help"){
+      drawit = false;
+      readme.open("README");
+      while(readme.good()) 
+	cout << (char)readme.get();
+      readme.close();
+    }
+    if(cmds1=="d"){
+      // draw 
+      if(cmds2!=""){icent=stoi(cmds2); }
+      if(cmds3!=""){irapbin=stoi(cmds3);  }
+      /* something funny here - limits alway hit
+      cout<<" setting new icent="<<icent<<" new irapbin="<<irapbin<<endl;      
+      if(icent<0){icent=0; cout<<" hit limit icent=0:cent,1:mid,2:periph "<<endl;}
+      if(icent>0){icent=2; cout<<" hit limit icent=0:cent,1:mid,2:periph "<<endl;}
+      if(irapbin<0){irapbin=0; cout<<" hit limit irapbin=0-8 "<<endl;}
+      if(irapbin>8){irapbin=8; cout<<" hit limit irapbin=0-8 "<<endl;}
+      */
+      
+      cout<<" new icent="<<icent<<" new irapbin="<<irapbin<<endl;
+    }
+    if(cmds1=="s"){
+      // set limits
+      if(cmds2!=""){xlow=stof(cmds2);}
+      if(cmds3!=""){xhigh=stof(cmds3);}
+      if(cmds4!=""){ylow=stof(cmds4);}
+      if(cmds5!=""){yhigh=stof(cmds5);}
+      if(cmds4!="" && cmds5=="" ){yhigh=-ylow; }
+      drawit=false;
+      cout<<" new xlow, high, ylow, high ="<<xlow<<" "<<xhigh<<" "<<ylow<<" "<<yhigh<<endl;
+    }
+    if(cmds1=="n"){
+      // draw next
+      if(irapbin<8)irapbin++;
+    }
+    if(cmds1=="p"){
+      // draw previous
+      if(irapbin>0)irapbin--;
+    }
+    if(cmds1=="cv"){
+      // new canvas
+      cout<<" making new canvas "<<endl;
+      if(cmds2!=""){xsize=stoi(cmds2);}
+      if(cmds3!=""){ysize=stoi(cmds3);}
+      canvnumb++;
+      canv[canvnumb] = new TCanvas(Form("canvas%d",canvnumb),Form("canvas%d",canvnumb),0,0,xsize,ysize);
+      canv[canvnumb]->Update();
+      //      canv[canvnumb]->cd();      // ->Divide(nx,ny)
+      drawit=false;
+    }
+    if(cmds1=="z"){
+      // divide canvas
+      if(cmds2!=""){nx=stoi(cmds2); }
+      if(cmds3!=""){ny=stoi(cmds3);  }
+      canv[canvnumb]->Divide(nx,ny);
+      defpad=1;
+      drawit=false;
+    }
+    if(cmds1=="pad"){
+      // divide canvas
+      if(cmds2!=""){defpad=stoi(cmds2); }
+      drawit=false;
+    }
+    if(cmds1=="df"){
+      // print defaults
+      cout <<" defaults "<<endl;
+      cout<<" canvas: xsize="<<xsize<<" ysize="<<ysize<<endl;
+      cout<<" nx="<<nx<<" ny="<<ny<<" default pad="<<defpad<<endl;
+      cout<<" histogram: icent="<<icent<<" irapbin="<<irapbin<<endl;
+      cout<<" limits x:"<<xlow<<" "<<xhigh<<" y:"<<ylow<<" "<<yhigh<<endl;
+      drawit=false;
+    }
+    if(cmds1=="p"){
+      // print current canvas
+      char printfile[50];
+      strcpy(printfile,cmds2.c_str());
+      cout<<" saving canvas as: "<<printfile<<endl;
+      if(cmds2!=""){canv[canvnumb]->SaveAs(printfile); }
+      drawit=false;
+    }
+    
+    if(drawit){    
+      string  histstr="xxxxxxxxx";
+      string  centstr="xxxxxxxxx";
+      string  rapbinstr="xxxxxxxxx";
+      
+      cout<<" icent="<<icent<<" irapbin="<<irapbin<<endl;
+      
+      centstr=centstr_ar[icent];
+      rapbinstr=rapbinstr_ar[irapbin];
+      
+      histstr=centstr+"_"+rapbinstr;
+      string titlestringx="xvsyprof_px_"+histstr;
+      string titlestringy="xvsyprof_py_"+histstr;
+      string titlestringp="xvsyprof_pt_"+histstr+";1";
+      
+      char titlechrx[50];
+      char titlechry[50];
+      char titlechrp[50];
+      strcpy(titlechrx,titlestringx.c_str());
+      strcpy(titlechry,titlestringy.c_str());
+      strcpy(titlechrp,titlestringp.c_str());
+      
+      gFile->cd();
+      
+      TProfile3D *histprof;
+      histprof = (TProfile3D*) gFile->Get(titlechrp);
+      if (gDirectory->FindObject(histprof)) printf ("%s exists \n", titlechrp); else {printf ("%s doesn't exist \n", titlechrp); return;}
+      histprof->GetXaxis()->SetRangeUser(xlow,xhigh);
+      histprof->GetYaxis()->SetRangeUser(ylow,yhigh);
+      canv[canvnumb]->cd(defpad);
+      histprof->DrawCopy("ARR,COLZ");
+      if(defpad<nx*ny)defpad++;
+      canv[canvnumb]->Update();
+      gPad->Modified();
+      gPad->Update();
+      gSystem->ProcessEvents();
+    }
+    //--------------------------------------------------------------    
+  } // iii
+}  
+

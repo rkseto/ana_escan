@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [[ -z "$5" ]]; then
+    echo "need 5 arguments: counter file-name_in bmin bmax energy_file energy_number counter (e.g. 0 ./data/Jam1_7p7GeV_b0-14_RQMDS_all_3.root jam1_3_0_14_RQMDS_hist 5 9 4.5 )"
+    exit
+fi
+	
+echo "input to doit1b is  $2 "
+echo " cent min, max, energy is $3 $4 $5 "
+echo " job counter $1 "
+rm -f jam1data.root
+
+SUB='hd_'
+if [[ "$2" == *"$SUB"* ]]; then
+    ls -lh $2
+    echo "It is in HD_2, copy it to ./data2"
+    bname="$(basename $2)"
+    echo $bname
+    cp -f $2 ./data2
+    ln -sf ./data2/$bname jam1data.root
+else
+    echo "just linking"
+    ln -sf $2 jam1data.root
+fi
+
+
+ls -l jam1data.root
+root -q ../progs/jam1ana6.C+\(5,-1,0,0,$5,$3,$4\)
+mv -f jam1ana6.root jam1ana6hist_$1.root
+
+SUB='hd_'
+if [[ "$2" == *"$SUB"* ]]; then
+    echo " removing file now from data 2"
+    bname="$(basename $2)"
+    rm ./data2/$bname
+fi
+
+
+exit
+
+

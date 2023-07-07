@@ -1,0 +1,38 @@
+#!/bin/bash
+if [ -f "doit7b" ]; then
+    echo "doit7b exists"
+else
+    echo "you need to link doit7b"
+    ln -s ../../Jam/progs/doit7b .
+fi
+if [[ -z "$6" ]]; then
+    echo "need 6 arguments: directory filename_in bmin bmax energy_file energy tag(e.g. ./data Jam1_7p7GeV_b0-14_RQMDS_all 5 9 4.5 set1)"
+    echo "filename needs just main part, leave off the _0.root, _1.root.   histrogram file will be named filename_in_hist.root"
+    echo "you can only run one job at a time in a directory since it uses the name jam1ana.root for intermediate output"
+    exit
+
+fi
+
+ls -1 $1/$2* > tmp1.bashtmp
+echo "files to be run will be"
+cat tmp1.bashtmp
+nl -v0 tmp1.bashtmp > tmp2.bashtmp
+sed s/"   "/"bash doit7b "/g tmp2.bashtmp > tmp3.bashtmp
+echo -e "#!/bin/bash" > tmp4.bashtmp
+cat tmp3.bashtmp >> tmp4.bashtmp
+#sed s/".root"/" test "/g tmp4.bashtmp tmp5.bashtmp
+sed s/".root"/".root $3 $4 $5"/g tmp4.bashtmp >tmp5.bash
+rm -f *.bashtmp
+chmod +x tmp5.bash
+echo "output histograms in " $2_hist.root
+bash tmp5.bash
+
+if test -f "$2_bcut$3_$4_$6_hist.root"; then
+    echo "$2_bcut$3_$4_$6_hist.root exists. move to $2_hist_old.root"
+    mv -f  $2_bcut$3_$4_$6_hist.root $2_bcut$3_$4_$6_hist_old.root
+fi
+ls -lltrh jam1ana7hist_*.root
+hadd   $2_bcut$3_$4_$6_hist.root jam1ana7hist_*.root
+rm -f jam1ana7hist_*.root
+exit
+

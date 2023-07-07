@@ -1,0 +1,126 @@
+// for looking at v3
+// load c++ and c headers
+// r phi z is really x y  -> rvsphivspr means xvsyvspx
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <vector>
+
+#include "TSystem.h"
+#include "TChain.h"
+#include "TH1D.h"
+#include "TCanvas.h"
+#include "TPad.h"
+#include "TF1.h"
+#include "TH1.h"
+#include "TH2.h"
+#include "TProfile.h"
+#include "TProfile2D.h"
+#include "TProfile3D.h"
+#include "TFrame.h"
+#include "TROOT.h"
+#include "TLeaf.h"
+#include "TRandom.h"
+#include "TRandom3.h"
+#include "TFormula.h"
+#include "TPaveLabel.h"
+#include "TFile.h"
+#include "TMath.h"
+#include "TLeaf.h"
+#include "TComplex.h"
+
+#include "TDatabasePDG.h"
+#include "TParticlePDG.h"
+#include "TLorentzVector.h"
+
+//using namespace std;
+
+void plt(){
+  //  void plt(string cmdstr = "HELP"){
+
+    string centstr_ar[3]={"cent","mid","periph"};
+    string rapbinstr_ar[9]={"binm4","binm3","binm2","binm1","bin0","binp1","binp2","binp3","binp4"};
+  string cmdstr = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";  
+  stringstream ss;
+  int icent=1;       // 0: cent 1: mid 2: periph
+  int irapbin=7;     // 0-8
+  double xlow=-20;
+  double xhigh=20;
+  double ylow=-10;
+  double yhigh=10;
+  
+  
+  TCanvas *c1 = new TCanvas("c1","c1",0,0,1000,1000);
+  
+  for(int iii=0; iii<10000; iii++){  
+    //--------------------------------------------------------------
+    cout<<" give command: ";
+    std::getline(std::cin, cmdstr);
+    cout<<" command was: "<<cmdstr<<endl;
+    std::istringstream iss(cmdstr);
+    std::string cmds1, cmds2, cmds3, cmds4, cmds5, cmds6 ;
+    iss>> cmds1>> cmds2>> cmds3>> cmds4>> cmds5>> cmds6 ;
+    cout<<" "<< cmds1<<" "<< cmds2<<" "<< cmds3<<" "<< cmds4<<" "<< cmds5<<" "<< cmds6<<" "<<endl ;    
+    
+    if(cmds1=="q" || cmds1=="Q"){cout<<" exiting "<<endl;exit(1);}
+    if(cmds1=="d"){
+      if(cmds2!=" "){
+	//	cout<<" cmds2 ="<<cmds2<<endl;
+	ss<<cmds2;
+	ss>>icent;
+	ss<<cmds3;
+	ss>>irapbin;
+	cout<<" new icent="<<icent<<" new irapbin="<<irapbin<<endl;
+      }
+    }
+    
+    string  histstr="xxxxxxxxx";
+    string  centstr="xxxxxxxxx";
+    string  rapbinstr="xxxxxxxxx";
+    
+    //    int icent=-1;
+    //    int irapbin=-1;
+    //    cout<<" give icent: " ;
+    //    cin>>icent;
+    //    cout<<" give irapbin: " ;
+    //    cin>>irapbin;
+    cout<<" icent="<<icent<<" irapbin="<<irapbin<<endl;
+    
+    centstr=centstr_ar[icent];
+    rapbinstr=rapbinstr_ar[irapbin];
+    
+    histstr=centstr+"_"+rapbinstr;
+    string titlestringx="xvsyprof_px_"+histstr;
+    string titlestringy="xvsyprof_py_"+histstr;
+    string titlestringp="xvsyprof_pt_"+histstr+";1";
+    
+    cout<<" made histstr = "<<histstr<<" "<<titlestringx<<" "<<titlestringy<<" "<<titlestringp<<endl;
+    
+    char titlechrx[50];
+    char titlechry[50];
+    char titlechrp[50];
+    strcpy(titlechrx,titlestringx.c_str());
+    strcpy(titlechry,titlestringy.c_str());
+    strcpy(titlechrp,titlestringp.c_str());
+    
+    gFile->cd();
+    cout << "Input hist:  " << titlechrp << endl;
+    
+    TProfile3D *histprof;
+    histprof = (TProfile3D*) gFile->Get(titlechrp);
+    if (gDirectory->FindObject(histprof)) printf ("%s exists \n", titlechrp); else {printf ("%s doesn't exist \n", titlechrp); return;}
+    histprof->GetXaxis()->SetRangeUser(xlow,xhigh);
+    histprof->GetYaxis()->SetRangeUser(ylow,yhigh);
+    histprof->DrawCopy("ARR");
+    c1->Update();
+    
+    //--------------------------------------------------------------    
+  } // iii
+}  
+

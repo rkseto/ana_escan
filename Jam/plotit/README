@@ -1,0 +1,62 @@
+new ploters
+
+plotjam1vec - instructions on previous sheet - to make vectoroutfile.txt for mathematica
+
+doplot6, doplot7all call prelim plots of cameron + jam1ana to compare data to simulation. all will do all energies
+output in pngrap
+
+doplotxyeps7 doplotxyeps7all plotjam1xy6.C
+Plot the eccentricities, all will do all energies.
+output in pngxyeps
+
+plotallana7.C - working - just root plotallana7.C
+plot all energies - rapidity plots etc to compare to cameron's data
+
+plotallmomprofiles.C : makes a histogram file of momentum magnitude
+profiles vs x and y of all centralities and rapidity bins for a particular energy
+root -q ../plotit/plotallmomprofiles.C'("Jam1_3GeV_b0-14_RQMDRMF_NS2_all_bcut0_14_ana7_hist.root",0.,5.)'
+the 0 and 5 are pt min and ptmax. Just leave them at 0 and 5
+
+plt.C - needs work
+will plot the momentum profiles which will will show the flow directions.
+root ../3p0/plotallmomprofiles.root (root file made by plotallmomprofiles.C)
+.x plt.C
+follow prompts
+
+
+root ../3p0/plotallmomprofiles.root
+.x plt.C
+
+d, df, dd, df - draw a plot: (d or df:draw flow vectors, dd: draw density, ddf: draw flow vectors on density plot)
+d c y   c=c:cent,m:mid,p:periph   y: ybin=-4,-3,-2,-1,0,1,2,3,4
+c = 0:cent 1:mid 2"periph  y=0 8
+
+s - set window x/y-range (xlow, xhigh, ylow, yhigh). if yhigh is blank or -1 it is set to -yhigh
+
+n - next plot in rapidity bins
+p - previous plot in rapidity bins
+
+cv- new canvas - can give x_size and y_size
+
+z - make a multiplot canvas
+z #x #y
+p file name
+
+q or Q quit
+
+z - zone Divide
+pad - set def pad
+
+def - print defaaults
+print file name - print
+h - help
+
+series to plot grid
+cv 1500 1000
+z 3 3
+s -20 20 -10 10
+pad 1
+ddf 1 0
+n
+n
+n

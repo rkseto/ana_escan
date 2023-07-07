@@ -1,0 +1,14 @@
+#!/bin/bash
+cd /home/seto/work/jam1ana_escan/Jam/3p0
+../progs/doit6 ./data Jam1_3GeV_b0-14_RQMDRMF_NS2_all 0 14 3 testing &> run.log &
+cd ../3p2
+../progs/doit6 ./data Jam1_3p2GeV_b0-14_RQMDRMF_NS2_all 0 14 3 testing &> run.log &
+cd ../3p5
+../progs/doit6 ./data Jam1_3p5GeV_b0-14_RQMDRMF_NS2_all 0 14 3 testing &> run.log &
+cd ../3p9
+../progs/doit6 ./data Jam1_3p9GeV_b0-14_RQMDRMF_NS2_all 0 14 3 testing &> run.log &
+cd ../4p5
+../progs/doit6 ./data Jam1_4p5GeV_b0-14_RQMDRMF_NS2_all 0 14 3 testing &> run.log &
+cd ../2p4
+../progs/doit6 ./data Jam1_2p4GeV_b0-14_RQMDRMF_NS2_all 0 14 3 testing &> run.log &
+exit

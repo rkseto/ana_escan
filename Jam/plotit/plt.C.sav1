@@ -1,0 +1,251 @@
+// for looking at v3
+// load c++ and c headers
+// r phi z is really x y  -> rvsphivspr means xvsyvspx
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <vector>
+
+#include "TSystem.h"
+#include "TChain.h"
+#include "TH1D.h"
+#include "TCanvas.h"
+#include "TPad.h"
+#include "TF1.h"
+#include "TH1.h"
+#include "TH2.h"
+#include "TProfile.h"
+#include "TProfile2D.h"
+#include "TProfile3D.h"
+#include "TFrame.h"
+#include "TROOT.h"
+#include "TLeaf.h"
+#include "TRandom.h"
+#include "TRandom3.h"
+#include "TFormula.h"
+#include "TPaveLabel.h"
+#include "TFile.h"
+#include "TMath.h"
+#include "TLeaf.h"
+#include "TComplex.h"
+
+#include "TDatabasePDG.h"
+#include "TParticlePDG.h"
+#include "TLorentzVector.h"
+
+//void plt (string filestr = "jam1_3_b0-14_RQMDS_all.root"){
+void plt(string cmdstr = "HELP"){
+  
+  string centstr_ar[3]={"cent","mid","periph"};
+  string rapbinstr_ar[9]={"binm4","binm3","binm2","binm1","bin0","binp1","binp2","binp3","binp4"};
+  
+  string  histstr="xxxxxxxxx";
+  string  centstr="xxxxxxxxx";
+  string  rapbinstr="xxxxxxxxx";
+  
+  int icent=-1;
+  int irapbin=-1;
+  cout<<" give icent: " ;
+  cin>>icent;
+  cout<<" give irapbin: " ;
+  cin>>irapbin;
+  cout<<" icent="<<icent<<" irapbin="<<irapbin<<endl;
+  
+  centstr=centstr_ar[icent];
+  rapbinstr=rapbinstr_ar[irapbin];
+  
+  
+  histstr=centstr+"_"+rapbinstr;
+  string titlestringx="xvsyprof_px_"+histstr;
+  string titlestringy="xvsyprof_py_"+histstr;
+  string titlestringp="xvsyprof_pt_"+histstr+";1";
+  
+  cout<<" made histstr = "<<histstr<<" "<<titlestringx<<" "<<titlestringy<<" "<<titlestringp<<endl;
+  
+  char titlechrx[50];
+  char titlechry[50];
+  char titlechrp[50];
+  strcpy(titlechrx,titlestringx.c_str());
+  strcpy(titlechry,titlestringy.c_str());
+  strcpy(titlechrp,titlestringp.c_str());
+  
+  gFile->cd();
+  cout << "Input hist:  " << titlechrp << endl;
+  
+  
+  TProfile3D *histprof;
+  histprof = (TProfile3D*) gFile->Get(titlechrp);
+  if (gDirectory->FindObject(histprof)) printf ("%s exists \n", titlechrp); else {printf ("%s doesn't exist \n", titlechrp); return;}
+  
+  histprof->DrawCopy("ARR");
+	
+	/*
+      string hist3Dpxstr="rvsphivspr_3D_"+histstr;
+      cout<<" hist3Dpxstr="<<hist3Dpxstr<<endl;
+      strcpy(hist3Dpxchr,hist3Dpxstr.c_str());
+      hist3Dpx = (TProfile3D*) fin->Get(hist3Dpxchr)
+      if (gDirectory->FindObject(hist3Dpx)) printf ("%s exists \n", hist3Dpxchr); else {printf ("%s doesn't exist \n", hist3Dpxchr); return;} 
+      */
+
+
+    //  void plt (string filestr = "jam1_3_b0-14_RQMDS_all.root"){
+  /*  
+  char filechr[50];
+  strcpy(filechr,filestr.c_str());
+  TFile *fin = new TFile(filechr,"read");
+  
+  //  void plt (string filestr = "jam1_3_b0-14_RQMDS_all.root", double ptmin=0., double ptmax=2. , double axissize=30.) {
+  // HELP, CHECK, DUMP, SLICEZ, SLICEZALL, SLICEX, SLICEY, DUMPSLICE, SLICEZXZ
+  //  string histstr;
+
+
+  char filechr[50];
+  strcpy(filechr,filestr.c_str());
+  char histchr[50];
+  
+  cout << "Input root file:  " << filechr << endl;
+
+  
+  TFile *fin = new TFile(filechr,"read");
+  TFile *myfile = new TFile("plotallmomprofiles.root","RECREATE");
+  string  histstr="xxxxxxxxx";
+
+  TH2D *prof2Dpx_ar[3*9];      
+  TH2D *prof2Dpy_ar[3*9];
+  TH2D *prof2Dpt_ar[3*9];     // these are profiles of the collision region, not profile histograms
+  
+  TProfile3D *hist3Dpx;  // for reasons I don't understand, this works for any histogram
+  TProfile3D *hist3Dpy;  // for reasons I don't understand, this works for any histogram
+  TProfile3D *hist3Dpz;  // for reasons I don't understand, this works for any histogram
+  char hist3Dpxchr[50];  
+
+  int icentrap=-1;
+
+  string centstr_ar[3]={"cent","mid","periph"};
+  string rapbinstr_ar[9]={"binm4","binm3","binm2","binm1","bin0","binp1","binp2","binp3","binp4"};
+  
+  for (int icent=0; icent<3; icent++){
+    for (int irapbin=0; irapbin<9; irapbin++){
+      icentrap=icent*9+irapbin;
+
+      string centstr=centstr_ar[icent];
+      string rapbinstr=rapbinstr_ar[irapbin];
+
+      histstr=centstr+"_"+rapbinstr;
+      string titlestringx="xvsyprof_px_"+histstr;
+      string titlestringy="xvsyprof_py_"+histstr;
+      string titlestringp="xvsyprof_pt_"+histstr;
+
+      cout<<" made histstr = "<<histstr<<" "<<titlestringx<<" "<<titlestringy<<" "<<titlestringp<<endl;
+
+      char titlechrx[50];
+      char titlechry[50];
+      char titlechrp[50];
+      strcpy(titlechrx,titlestringx.c_str());
+      strcpy(titlechry,titlestringy.c_str());
+      strcpy(titlechrp,titlestringp.c_str());
+      
+      fin->cd();  
+      cout<<" DUMP a SLICE in pt"<<endl;
+      cout << "Input hist:  " << histstr << endl;
+      
+      string hist3Dpxstr="rvsphivspr_3D_"+histstr;
+      cout<<" hist3Dpxstr="<<hist3Dpxstr<<endl;
+      strcpy(hist3Dpxchr,hist3Dpxstr.c_str());
+      hist3Dpx = (TProfile3D*) fin->Get(hist3Dpxchr);
+      if (gDirectory->FindObject(hist3Dpx)) printf ("%s exists \n", hist3Dpxchr); else {printf ("%s doesn't exist \n", hist3Dpxchr); return;} 
+      
+      string hist3Dpystr="rvsphivspth_3D_"+histstr;
+      cout<<" hist3Dpystr="<<hist3Dpystr<<endl;
+      char hist3Dpychr[50];
+      strcpy(hist3Dpychr,hist3Dpystr.c_str());
+      hist3Dpy = (TProfile3D*) fin->Get(hist3Dpychr);
+      if (gDirectory->FindObject(hist3Dpy)) printf ("%s exists \n", hist3Dpychr); else {printf ("%s doesn't exist \n", hist3Dpychr); return;} 
+      
+      string hist3Dpzstr="rvsphivspz_3D_"+histstr;
+      cout<<" hist3Dpzstr="<<hist3Dpzstr<<endl;
+      char hist3Dpzchr[50];
+      strcpy(hist3Dpzchr,hist3Dpzstr.c_str());
+      hist3Dpz = (TProfile3D*) fin->Get(hist3Dpzchr);
+      if (gDirectory->FindObject(hist3Dpz)) printf ("%s exists \n", hist3Dpzchr); else {printf ("%s doesn't exist \n", hist3Dpzchr); return;} 
+      
+      
+      int nx=hist3Dpx->GetNbinsX();
+      int ny=hist3Dpx->GetNbinsY();
+      int nz=hist3Dpx->GetNbinsZ();
+      double dx = hist3Dpx->GetXaxis()->GetBinCenter(2)-hist3Dpx->GetXaxis()->GetBinCenter(1);
+      double xmin=hist3Dpx->GetXaxis()->GetBinCenter(1)-dx/2.;
+      double xmax=hist3Dpx->GetXaxis()->GetBinCenter(nx)+dx/2.;
+      cout<<" nx xmin xmax="<<nx<<" "<<xmin<<" "<<xmax<<endl;
+      
+      double dy = hist3Dpx->GetYaxis()->GetBinCenter(2)-hist3Dpx->GetYaxis()->GetBinCenter(1);
+      double ymin=hist3Dpx->GetYaxis()->GetBinCenter(1)-dy/2.;
+      double ymax=hist3Dpx->GetYaxis()->GetBinCenter(ny)+dy/2.;
+      cout<<" ny ymin ymax="<<ny<<" "<<ymin<<" "<<ymax<<endl;
+      
+      double dz = hist3Dpx->GetZaxis()->GetBinCenter(2)-hist3Dpx->GetZaxis()->GetBinCenter(1);
+      double zmin=hist3Dpx->GetZaxis()->GetBinCenter(1)-dz/2.;
+      double zmax=hist3Dpx->GetZaxis()->GetBinCenter(nz)+dz/2.;
+      cout<<" nz zmin zmax="<<nz<<" "<<zmin<<" "<<zmax<<endl;
+      
+      
+      int iptmin=hist3Dpx->GetZaxis()->FindBin(ptmin);
+      int iptmax=hist3Dpx->GetZaxis()->FindBin(ptmax);
+      cout<<" ptmin iptmin ptmax iptmax="<<ptmin<<" "<<iptmin<<" "<<ptmax<<" "<<iptmax<<endl;
+      
+      cout<<" makeing hists prof2D "<<endl;
+      prof2Dpx_ar[icentrap] = new TH2D(titlechrx,titlechrx,nx,xmin,xmax,ny,ymin,ymax);
+      prof2Dpy_ar[icentrap] = new TH2D(titlechry,titlechry,nx,xmin,xmax,ny,ymin,ymax);
+      prof2Dpt_ar[icentrap] = new TH2D(titlechrp,titlechrp,nx,xmin,xmax,ny,ymin,ymax);
+        
+      for(int i=1; i<nx+1; i++){
+	for(int j=1; j<ny+1; j++){
+	  double contentpx=0.;
+	  double contentpy=0.;
+	  int nentriestotx=0;
+	  int nentriestoty=0;
+	  for(int k=iptmin; k<iptmax+1; k++){
+	    
+	    int gbin=hist3Dpx->GetBin(i,j,k);
+	    nentriestotx+=hist3Dpx->GetBinEntries(gbin);
+	    contentpx+=hist3Dpx->GetBinContent(i,j,k)*hist3Dpx->GetBinEntries(gbin);
+	    gbin=hist3Dpy->GetBin(i,j,k);
+	    nentriestoty+=hist3Dpy->GetBinEntries(gbin);
+	    contentpy+=hist3Dpy->GetBinContent(i,j,k)*hist3Dpy->GetBinEntries(gbin);
+	  }
+	  if(nentriestotx>0)contentpx/=double(nentriestotx);
+	  if(nentriestoty>0)contentpy/=double(nentriestoty);
+	  prof2Dpx_ar[icentrap]->SetBinContent(i,j,contentpx);
+	  prof2Dpy_ar[icentrap]->SetBinContent(i,j,contentpy);
+	  prof2Dpt_ar[icentrap]->SetBinContent(i,j,sqrt(contentpx*contentpx+contentpy*contentpy));
+	  double x=prof2Dpx_ar[icentrap]->GetXaxis()->GetBinCenter(i);
+	  double y=prof2Dpy_ar[icentrap]->GetYaxis()->GetBinCenter(j);
+	  double px=prof2Dpx_ar[icentrap]->GetBinContent(i,j);
+	  double py=prof2Dpy_ar[icentrap]->GetBinContent(i,j);
+	}
+      } 
+    
+    cout<<" end of "<<histstr<<endl;
+
+    hist3Dpx->Reset();
+    hist3Dpy->Reset();	
+    hist3Dpz->Reset();
+
+    myfile->cd();
+
+    cout<<" ************WRITING icentrap="<<icentrap<<endl;
+    prof2Dpx_ar[icentrap]->Write();
+    prof2Dpy_ar[icentrap]->Write();
+    prof2Dpt_ar[icentrap]->Write();
+
+    } //rapidity
+  } // centralitu
+    myfile->Close();    
+*/
+}  
+

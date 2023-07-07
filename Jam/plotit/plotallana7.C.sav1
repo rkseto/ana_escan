@@ -1,0 +1,298 @@
+// for looking at v3
+// load c++ and c headers
+// r phi z is really x y  -> rvsphivspr means xvsyvspx
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <vector>
+
+#include "TSystem.h"
+#include "TChain.h"
+#include "TH1D.h"
+#include "TCanvas.h"
+#include "TPad.h"
+#include "TF1.h"
+#include "TH1.h"
+#include "TH2.h"
+#include "TProfile.h"
+#include "TProfile2D.h"
+#include "TProfile3D.h"
+#include "TFrame.h"
+#include "TROOT.h"
+#include "TLeaf.h"
+#include "TRandom.h"
+#include "TRandom3.h"
+#include "TFormula.h"
+#include "TPaveLabel.h"
+#include "TFile.h"
+#include "TMath.h"
+#include "TLeaf.h"
+#include "TComplex.h"
+
+#include "TDatabasePDG.h"
+#include "TParticlePDG.h"
+#include "TLorentzVector.h"
+
+void plotallana7 () {
+  //  void plotallana7 (string filestr = "jam1_3_b0-14_RQMDS_all.root", double ptmin=0., double ptmax=5. ) {
+  int nfiles=4;
+  string filestr_ar[10]={
+    "../3p0/Jam1_3GeV_b0-14_RQMDRMF_NS2_all_bcut0_14_ana7_hist.root",
+    "../3p2/Jam1_3p2GeV_b0-14_RQMDRMF_NS2_all_bcut0_14_ana7_hist.root",
+    "../3p5/Jam1_3p5GeV_b0-14_RQMDRMF_NS2_all_bcut0_14_ana7_hist.root",
+    "../3p9/Jam1_3p9GeV_b0-14_RQMDRMF_NS2_all_bcut0_14_ana7_hist.root",
+    "../4p5/Jam1_4p5GeV_b0-14_RQMDRMF_NS2_all_bcut0_14_ana7_hist.root",
+    " ",
+    " ",
+    " ",
+    " ",
+    " "
+  };
+  string name_a_str_ar[10]={
+    "3p0",
+    "3p2",
+    "3p5",
+    "3p9",    
+    "4p5",
+    " ",
+    " ",
+    " ",
+    " ",
+    " "
+  };
+  // string filestr="../3p0/Jam1_3GeV_b0-14_RQMDRMF_NS2_all_bcut0_14_ana7_hist.root";
+  TFile *fin_ar[10]; 
+  char filechr[500];
+
+  for (int i=0; i<nfiles; i++){
+      //  strcpy(filechr,filestr.c_str());
+      //  TFile *fin = new TFile(filechr,"read");
+      strcpy(filechr,filestr_ar[i].c_str());
+      fin_ar[i] = new TFile(filechr,"read");
+      cout << "Input root file:  " << filechr << endl;
+    }
+	 
+
+  TProfile *myraphist_ar[10];
+  TProfile *mycenthist_ar[10];
+  TProfile *mypthist_ar[10];
+  char histchr[500];
+  char namechr[500];
+  string histstr="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  string name_b_str="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  
+  for (int j=0; j<3; j++){
+    if(j==0){histstr="cth_3_rapidity_ptcut1_mid_pr_h"; name_b_str ="Jam_v3_rap_mid";}
+    if(j==1){histstr="cth_3_b_ycut1_ptcut1_pr_h"; name_b_str ="Jam_v3_centrality";  }
+    if(j==2){histstr="cth_3_pt_ycut1_mid_pr_h"; name_b_str ="Jam_v3_pt_mid";  }
+    strcpy(histchr,histstr.c_str());
+    
+    for (int i=0; i<nfiles; i++){
+      string namestr=name_b_str+"_"+name_a_str_ar[i];
+      //      string namestr=name_b_str++Form("myhist%d",i);
+      strcpy(namechr,namestr.c_str());
+      cout<<namechr<<endl;
+      if(j==0){ myraphist_ar[i] = (TProfile *) fin_ar[i]->Get(histchr);myraphist_ar[i]->SetNameTitle(namechr,namechr);}
+      if(j==1){ mycenthist_ar[i] = (TProfile *) fin_ar[i]->Get(histchr);mycenthist_ar[i]->SetNameTitle(namechr,namechr);}
+      if(j==2){ mypthist_ar[i] = (TProfile *) fin_ar[i]->Get(histchr);mypthist_ar[i]->SetNameTitle(namechr,namechr);}      
+    }
+  }
+  
+  TFile *myfile = new TFile("plotallana7.root","RECREATE");
+  for (int i=0; i<nfiles; i++){
+    myraphist_ar[i]->Write();
+    mycenthist_ar[i]->Write();
+    mypthist_ar[i]->Write();
+  }
+
+  TCanvas *c1 = new TCanvas("c1", "Canvas", 1000, 1000);
+  myraphist_ar[0]->GetXaxis()->SetRangeUser(-1.,1.);
+  myraphist_ar[0]->GetYaxis()->SetRangeUser(-0.04,0.04);
+  myraphist_ar[0]->SetLineColor(kRed);
+  myraphist_ar[0]->SetLineWidth(3);
+  myraphist_ar[0]->Draw("hist L p");
+  for (int i=1; i<nfiles; i++){
+    if(i==1)myraphist_ar[i]->SetLineColor(kBlue);
+    if(i==2)myraphist_ar[i]->SetLineColor(kMagenta);
+    if(i==3)myraphist_ar[i]->SetLineColor(kBlack);
+    myraphist_ar[i]->SetLineWidth(3);
+    myraphist_ar[i]->Draw("SAME hist L p");
+  }
+  c1->Print("v3_Jam_all_rapidity.png");
+
+  TCanvas *c2 = new TCanvas("c2", "Canvas", 1000, 1000);
+  mycenthist_ar[0]->GetXaxis()->SetRangeUser(0.,60.);
+  mycenthist_ar[0]->GetYaxis()->SetRangeUser(-0.03,0.02);
+  mycenthist_ar[0]->SetLineColor(kRed);
+  mycenthist_ar[0]->SetLineWidth(3);
+  mycenthist_ar[0]->Draw("hist L p");
+  for (int i=1; i<nfiles; i++){
+    if(i==1)mycenthist_ar[i]->SetLineColor(kBlue);
+    if(i==2)mycenthist_ar[i]->SetLineColor(kMagenta);
+    if(i==3)mycenthist_ar[i]->SetLineColor(kBlack);
+    mycenthist_ar[i]->SetLineWidth(3);
+    mycenthist_ar[i]->Draw("SAME hist L p");
+  }
+  c2->Print("v3_Jam_all_centrality.png");
+
+  TCanvas *c3 = new TCanvas("c3", "Canvas", 1000, 1000);
+  mypthist_ar[0]->GetXaxis()->SetRangeUser(0.,2.);
+  mypthist_ar[0]->GetYaxis()->SetRangeUser(-0.04,0.04);
+  mypthist_ar[0]->SetLineColor(kRed);
+  mypthist_ar[0]->SetLineWidth(3);
+  mypthist_ar[0]->Draw("hist L p");
+  for (int i=1; i<nfiles; i++){
+    if(i==1)mypthist_ar[i]->SetLineColor(kBlue);
+    if(i==2)mypthist_ar[i]->SetLineColor(kMagenta);
+    if(i==3)mypthist_ar[i]->SetLineColor(kBlack);
+    mypthist_ar[i]->SetLineWidth(3);
+    mypthist_ar[i]->Draw("SAME hist L p");
+  }
+  c3->Print("v3_Jam_all_pt.png");
+
+  
+  myfile->Close();
+
+  /*  
+  TH2D *prof2Dpx_ar[3*9];      
+  TH2D *prof2Dpy_ar[3*9];
+  TH2D *prof2Dpt_ar[3*9];     // these are profiles of the collision region, not profile histograms
+  
+  TProfile3D *hist3Dpx;  // for reasons I don't understand, this works for any histogram
+  TProfile3D *hist3Dpy;  // for reasons I don't understand, this works for any histogram
+  TProfile3D *hist3Dpz;  // for reasons I don't understand, this works for any histogram
+  char hist3Dpxchr[50];  
+
+  int icentrap=-1;
+
+  string centstr_ar[3]={"cent","mid","periph"};
+  string rapbinstr_ar[9]={"binm4","binm3","binm2","binm1","bin0","binp1","binp2","binp3","binp4"};
+  
+  for (int icent=0; icent<3; icent++){
+    for (int irapbin=0; irapbin<9; irapbin++){
+      icentrap=icent*9+irapbin;
+
+      string centstr=centstr_ar[icent];
+      string rapbinstr=rapbinstr_ar[irapbin];
+
+      histstr=centstr+"_"+rapbinstr;
+      string titlestringx="xvsyprof_px_"+histstr;
+      string titlestringy="xvsyprof_py_"+histstr;
+      string titlestringp="xvsyprof_pt_"+histstr;
+
+      cout<<" made histstr = "<<histstr<<" "<<titlestringx<<" "<<titlestringy<<" "<<titlestringp<<endl;
+
+      char titlechrx[50];
+      char titlechry[50];
+      char titlechrp[50];
+      strcpy(titlechrx,titlestringx.c_str());
+      strcpy(titlechry,titlestringy.c_str());
+      strcpy(titlechrp,titlestringp.c_str());
+      
+      fin->cd();  
+      cout<<" DUMP a SLICE in pt"<<endl;
+      cout << "Input hist:  " << histstr << endl;
+      
+      string hist3Dpxstr="rvsphivspr_3D_"+histstr;
+      cout<<" hist3Dpxstr="<<hist3Dpxstr<<endl;
+      strcpy(hist3Dpxchr,hist3Dpxstr.c_str());
+      hist3Dpx = (TProfile3D*) fin->Get(hist3Dpxchr);
+      if (gDirectory->FindObject(hist3Dpx)) printf ("%s exists \n", hist3Dpxchr); else {printf ("%s doesn't exist \n", hist3Dpxchr); return;} 
+      
+      string hist3Dpystr="rvsphivspth_3D_"+histstr;
+      cout<<" hist3Dpystr="<<hist3Dpystr<<endl;
+      char hist3Dpychr[50];
+      strcpy(hist3Dpychr,hist3Dpystr.c_str());
+      hist3Dpy = (TProfile3D*) fin->Get(hist3Dpychr);
+      if (gDirectory->FindObject(hist3Dpy)) printf ("%s exists \n", hist3Dpychr); else {printf ("%s doesn't exist \n", hist3Dpychr); return;} 
+      
+      string hist3Dpzstr="rvsphivspz_3D_"+histstr;
+      cout<<" hist3Dpzstr="<<hist3Dpzstr<<endl;
+      char hist3Dpzchr[50];
+      strcpy(hist3Dpzchr,hist3Dpzstr.c_str());
+      hist3Dpz = (TProfile3D*) fin->Get(hist3Dpzchr);
+      if (gDirectory->FindObject(hist3Dpz)) printf ("%s exists \n", hist3Dpzchr); else {printf ("%s doesn't exist \n", hist3Dpzchr); return;} 
+      
+      
+      int nx=hist3Dpx->GetNbinsX();
+      int ny=hist3Dpx->GetNbinsY();
+      int nz=hist3Dpx->GetNbinsZ();
+      double dx = hist3Dpx->GetXaxis()->GetBinCenter(2)-hist3Dpx->GetXaxis()->GetBinCenter(1);
+      double xmin=hist3Dpx->GetXaxis()->GetBinCenter(1)-dx/2.;
+      double xmax=hist3Dpx->GetXaxis()->GetBinCenter(nx)+dx/2.;
+      cout<<" nx xmin xmax="<<nx<<" "<<xmin<<" "<<xmax<<endl;
+      
+      double dy = hist3Dpx->GetYaxis()->GetBinCenter(2)-hist3Dpx->GetYaxis()->GetBinCenter(1);
+      double ymin=hist3Dpx->GetYaxis()->GetBinCenter(1)-dy/2.;
+      double ymax=hist3Dpx->GetYaxis()->GetBinCenter(ny)+dy/2.;
+      cout<<" ny ymin ymax="<<ny<<" "<<ymin<<" "<<ymax<<endl;
+      
+      double dz = hist3Dpx->GetZaxis()->GetBinCenter(2)-hist3Dpx->GetZaxis()->GetBinCenter(1);
+      double zmin=hist3Dpx->GetZaxis()->GetBinCenter(1)-dz/2.;
+      double zmax=hist3Dpx->GetZaxis()->GetBinCenter(nz)+dz/2.;
+      cout<<" nz zmin zmax="<<nz<<" "<<zmin<<" "<<zmax<<endl;
+      
+      
+      int iptmin=hist3Dpx->GetZaxis()->FindBin(ptmin);
+      int iptmax=hist3Dpx->GetZaxis()->FindBin(ptmax);
+      cout<<" ptmin iptmin ptmax iptmax="<<ptmin<<" "<<iptmin<<" "<<ptmax<<" "<<iptmax<<endl;
+      
+      cout<<" makeing hists prof2D "<<endl;
+      //      prof2Dpx_ar[icentrap] = new TH2D("profile_xvsy_px","profile_xvsy_px",nx,xmin,xmax,ny,ymin,ymax);
+      //      prof2Dpy_ar[icentrap] = new TH2D("profile_xvsy_py","profile_xvsy_py",nx,xmin,xmax,ny,ymin,ymax);
+      //      prof2Dpt_ar[icentrap] = new TH2D("profile_xvsy_pt","profile_xvsy_pt",nx,xmin,xmax,ny,ymin,ymax);
+      prof2Dpx_ar[icentrap] = new TH2D(titlechrx,titlechrx,nx,xmin,xmax,ny,ymin,ymax);
+      prof2Dpy_ar[icentrap] = new TH2D(titlechry,titlechry,nx,xmin,xmax,ny,ymin,ymax);
+      prof2Dpt_ar[icentrap] = new TH2D(titlechrp,titlechrp,nx,xmin,xmax,ny,ymin,ymax);
+        
+      for(int i=1; i<nx+1; i++){
+	for(int j=1; j<ny+1; j++){
+	  double contentpx=0.;
+	  double contentpy=0.;
+	  int nentriestotx=0;
+	  int nentriestoty=0;
+	  for(int k=iptmin; k<iptmax+1; k++){
+	    
+	    int gbin=hist3Dpx->GetBin(i,j,k);
+	    nentriestotx+=hist3Dpx->GetBinEntries(gbin);
+	    contentpx+=hist3Dpx->GetBinContent(i,j,k)*hist3Dpx->GetBinEntries(gbin);
+	    gbin=hist3Dpy->GetBin(i,j,k);
+	    nentriestoty+=hist3Dpy->GetBinEntries(gbin);
+	    contentpy+=hist3Dpy->GetBinContent(i,j,k)*hist3Dpy->GetBinEntries(gbin);
+	  }
+	  if(nentriestotx>0)contentpx/=double(nentriestotx);
+	  if(nentriestoty>0)contentpy/=double(nentriestoty);
+	  prof2Dpx_ar[icentrap]->SetBinContent(i,j,contentpx);
+	  prof2Dpy_ar[icentrap]->SetBinContent(i,j,contentpy);
+	  prof2Dpt_ar[icentrap]->SetBinContent(i,j,sqrt(contentpx*contentpx+contentpy*contentpy));
+	  double x=prof2Dpx_ar[icentrap]->GetXaxis()->GetBinCenter(i);
+	  double y=prof2Dpy_ar[icentrap]->GetYaxis()->GetBinCenter(j);
+	  double px=prof2Dpx_ar[icentrap]->GetBinContent(i,j);
+	  double py=prof2Dpy_ar[icentrap]->GetBinContent(i,j);
+	}
+      } 
+    
+    cout<<" end of "<<histstr<<endl;
+
+    hist3Dpx->Reset();
+    hist3Dpy->Reset();	
+    hist3Dpz->Reset();
+
+    myfile->cd();
+
+    cout<<" ************WRITING icentrap="<<icentrap<<endl;
+    prof2Dpx_ar[icentrap]->Write();
+    prof2Dpy_ar[icentrap]->Write();
+    prof2Dpt_ar[icentrap]->Write();
+
+    } //rapidity
+  } // centralitu
+    myfile->Close();    
+  */
+}  
+

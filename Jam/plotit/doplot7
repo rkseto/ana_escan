@@ -1,0 +1,16 @@
+#!/bin/bash
+if [[ -z "$1" ]]; then
+    echo "needs 2 arguments  e.g. 3p0 3GeV_b5-9_VDF7, ie directory in Desktop/work/ana_escan/Jam " 
+    exit
+fi
+// we continue to use jam1ana6.root as the symbol
+ln -sf /home/seto/Desktop/work2/$1/$2\.root jam1ana6.root
+root -b -q prelimRapidityPlots2.cxx\(1,\""$2"\"\)
+mv v3_prRapidityStack.png ./pngrap/v3_Rapidity_$2\.png
+root -b -q prelimPtPlots2.cxx\(1,\""$2"\"\)
+mv v3_prPtStack.png ./pngrap/v3_Pt_$2\.png
+root -b -q prelimCentralityPlots2.cxx\(1,\""$2"\"\)
+mv v3_allCentralityStack.png ./pngrap/v3_Centrality_$2\.png
+exit
+
+
