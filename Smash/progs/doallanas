@@ -1,0 +1,6 @@
+#!/bin/bash
+cd /home/seto/Desktop/work/ana_escan/Smash/3p0
+../progs/doit7s ./data smash2_3_b0-14_hard2SymPauli_all 0 14 3 ana7 &> run.log &
+exit
+
+

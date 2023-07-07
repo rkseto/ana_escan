@@ -1,0 +1,747 @@
+										      >	// April 28, 2023 - this is for looking at the Escan - not for the paper.
+										      >	// attempt to make it look as much like jam1ana7.C as possible
+										      >	// Jamana7 now uses rapidity/ybeam
+void smash2ana1(int itype=5,int ntodo=-1, int irot=0, int i_inject=0, double Ecm=7.7, |	void smash2ana7(int itype=5,int ntodo=-1, int irot=0, int i_inject=0, double Ecm=7.7,
+    std::cout<<" aruments are: itype, 1=AMPT(make link to data) 2=RQMD 3=my generator |	    std::cout<<" aruments are: itype, 1=AMPT(make link to data) 2=RQMD 3=my generator
+  TH2D *xvsy_p_pt0_binm4 = new TH2D("xvsy_p_pt0_binm4","xvsy_p_pt0_binm4",1000,-200., |	  TH2D *xvsy_p_pt0_binm4 = new TH2D("xvsy_p_pt0_binm4","xvsy_p_pt0_binm4",500,-100.,1
+  TH2D *xvsy_p_pt0_binm3 = new TH2D("xvsy_p_pt0_binm3","xvsy_p_pt0_binm3",1000,-200., |	  TH2D *xvsy_p_pt0_binm3 = new TH2D("xvsy_p_pt0_binm3","xvsy_p_pt0_binm3",500,-100.,1
+  TH2D *xvsy_p_pt0_binm2 = new TH2D("xvsy_p_pt0_binm2","xvsy_p_pt0_binm2",1000,-200., |	  TH2D *xvsy_p_pt0_binm2 = new TH2D("xvsy_p_pt0_binm2","xvsy_p_pt0_binm2",500,-100.,1
+  TH2D *xvsy_p_pt0_binm1 = new TH2D("xvsy_p_pt0_binm1","xvsy_p_pt0_binm1",1000,-200., |	  TH2D *xvsy_p_pt0_binm1 = new TH2D("xvsy_p_pt0_binm1","xvsy_p_pt0_binm1",500,-100.,1
+  TH2D *xvsy_p_pt0_bin0 = new TH2D("xvsy_p_pt0_bin0","xvsy_p_pt0_bin0",1000,-200.,200 |	  TH2D *xvsy_p_pt0_bin0 = new TH2D("xvsy_p_pt0_bin0","xvsy_p_pt0_bin0",500,-100.,100.
+  TH2D *xvsy_p_pt0_binp1 = new TH2D("xvsy_p_pt0_binp1","xvsy_p_pt0_binp1",1000,-200., |	  TH2D *xvsy_p_pt0_binp1 = new TH2D("xvsy_p_pt0_binp1","xvsy_p_pt0_binp1",500,-100.,1
+  TH2D *xvsy_p_pt0_binp2 = new TH2D("xvsy_p_pt0_binp2","xvsy_p_pt0_binp2",1000,-200., |	  TH2D *xvsy_p_pt0_binp2 = new TH2D("xvsy_p_pt0_binp2","xvsy_p_pt0_binp2",500,-100.,1
+  TH2D *xvsy_p_pt0_binp3 = new TH2D("xvsy_p_pt0_binp3","xvsy_p_pt0_binp3",1000,-200., |	  TH2D *xvsy_p_pt0_binp3 = new TH2D("xvsy_p_pt0_binp3","xvsy_p_pt0_binp3",500,-100.,1
+  TH2D *xvsy_p_pt0_binp4 = new TH2D("xvsy_p_pt0_binp4","xvsy_p_pt0_binp4",1000,-200., |	  TH2D *xvsy_p_pt0_binp4 = new TH2D("xvsy_p_pt0_binp4","xvsy_p_pt0_binp4",500,-100.,1
+  										      |	  
+  TH2D *xvsy_p_pt1_binm4 = new TH2D("xvsy_p_pt1_binm4","xvsy_p_pt1_binm4",1000,-200., |	  TH2D *xvsy_p_pt1_binm4 = new TH2D("xvsy_p_pt1_binm4","xvsy_p_pt1_binm4",500,-100.,1
+  TH2D *xvsy_p_pt1_binm3 = new TH2D("xvsy_p_pt1_binm3","xvsy_p_pt1_binm3",1000,-200., |	  TH2D *xvsy_p_pt1_binm3 = new TH2D("xvsy_p_pt1_binm3","xvsy_p_pt1_binm3",500,-100.,1
+  TH2D *xvsy_p_pt1_binm2 = new TH2D("xvsy_p_pt1_binm2","xvsy_p_pt1_binm2",1000,-200., |	  TH2D *xvsy_p_pt1_binm2 = new TH2D("xvsy_p_pt1_binm2","xvsy_p_pt1_binm2",500,-100.,1
+  TH2D *xvsy_p_pt1_binm1 = new TH2D("xvsy_p_pt1_binm1","xvsy_p_pt1_binm1",1000,-200., |	  TH2D *xvsy_p_pt1_binm1 = new TH2D("xvsy_p_pt1_binm1","xvsy_p_pt1_binm1",500,-100.,1
+  TH2D *xvsy_p_pt1_bin0 = new TH2D("xvsy_p_pt1_bin0","xvsy_p_pt1_bin0",1000,-200.,200 |	  TH2D *xvsy_p_pt1_bin0 = new TH2D("xvsy_p_pt1_bin0","xvsy_p_pt1_bin0",500,-100.,100.
+  TH2D *xvsy_p_pt1_binp1 = new TH2D("xvsy_p_pt1_binp1","xvsy_p_pt1_binp1",1000,-200., |	  TH2D *xvsy_p_pt1_binp1 = new TH2D("xvsy_p_pt1_binp1","xvsy_p_pt1_binp1",500,-100.,1
+  TH2D *xvsy_p_pt1_binp2 = new TH2D("xvsy_p_pt1_binp2","xvsy_p_pt1_binp2",1000,-200., |	  TH2D *xvsy_p_pt1_binp2 = new TH2D("xvsy_p_pt1_binp2","xvsy_p_pt1_binp2",500,-100.,1
+  TH2D *xvsy_p_pt1_binp3 = new TH2D("xvsy_p_pt1_binp3","xvsy_p_pt1_binp3",1000,-200., |	  TH2D *xvsy_p_pt1_binp3 = new TH2D("xvsy_p_pt1_binp3","xvsy_p_pt1_binp3",500,-100.,1
+  TH2D *xvsy_p_pt1_binp4 = new TH2D("xvsy_p_pt1_binp4","xvsy_p_pt1_binp4",1000,-200., |	  TH2D *xvsy_p_pt1_binp4 = new TH2D("xvsy_p_pt1_binp4","xvsy_p_pt1_binp4",500,-100.,1
+  										      |	  
+  TH2D *xvsy_p_pt2_binm4 = new TH2D("xvsy_p_pt2_binm4","xvsy_p_pt2_binm4",1000,-200., |	  TH2D *xvsy_p_pt2_binm4 = new TH2D("xvsy_p_pt2_binm4","xvsy_p_pt2_binm4",500,-100.,1
+  TH2D *xvsy_p_pt2_binm3 = new TH2D("xvsy_p_pt2_binm3","xvsy_p_pt2_binm3",1000,-200., |	  TH2D *xvsy_p_pt2_binm3 = new TH2D("xvsy_p_pt2_binm3","xvsy_p_pt2_binm3",500,-100.,1
+  TH2D *xvsy_p_pt2_binm2 = new TH2D("xvsy_p_pt2_binm2","xvsy_p_pt2_binm2",1000,-200., |	  TH2D *xvsy_p_pt2_binm2 = new TH2D("xvsy_p_pt2_binm2","xvsy_p_pt2_binm2",500,-100.,1
+  TH2D *xvsy_p_pt2_binm1 = new TH2D("xvsy_p_pt2_binm1","xvsy_p_pt2_binm1",1000,-200., |	  TH2D *xvsy_p_pt2_binm1 = new TH2D("xvsy_p_pt2_binm1","xvsy_p_pt2_binm1",500,-100.,1
+  TH2D *xvsy_p_pt2_bin0 = new TH2D("xvsy_p_pt2_bin0","xvsy_p_pt2_bin0",1000,-200.,200 |	  TH2D *xvsy_p_pt2_bin0 = new TH2D("xvsy_p_pt2_bin0","xvsy_p_pt2_bin0",500,-100.,100.
+  TH2D *xvsy_p_pt2_binp1 = new TH2D("xvsy_p_pt2_binp1","xvsy_p_pt2_binp1",1000,-200., |	  TH2D *xvsy_p_pt2_binp1 = new TH2D("xvsy_p_pt2_binp1","xvsy_p_pt2_binp1",500,-100.,1
+  TH2D *xvsy_p_pt2_binp2 = new TH2D("xvsy_p_pt2_binp2","xvsy_p_pt2_binp2",1000,-200., |	  TH2D *xvsy_p_pt2_binp2 = new TH2D("xvsy_p_pt2_binp2","xvsy_p_pt2_binp2",500,-100.,1
+  TH2D *xvsy_p_pt2_binp3 = new TH2D("xvsy_p_pt2_binp3","xvsy_p_pt2_binp3",1000,-200., |	  TH2D *xvsy_p_pt2_binp3 = new TH2D("xvsy_p_pt2_binp3","xvsy_p_pt2_binp3",500,-100.,1
+  TH2D *xvsy_p_pt2_binp4 = new TH2D("xvsy_p_pt2_binp4","xvsy_p_pt2_binp4",1000,-200., |	  TH2D *xvsy_p_pt2_binp4 = new TH2D("xvsy_p_pt2_binp4","xvsy_p_pt2_binp4",500,-100.,1
+										      |
+  TH2D *xvsy_p_pt3_binm4 = new TH2D("xvsy_p_pt3_binm4","xvsy_p_pt3_binm4",1000,-200., |	  TH2D *xvsy_p_pt3_binm4 = new TH2D("xvsy_p_pt3_binm4","xvsy_p_pt3_binm4",500,-100.,1
+  TH2D *xvsy_p_pt3_binm3 = new TH2D("xvsy_p_pt3_binm3","xvsy_p_pt3_binm3",1000,-200., |	  TH2D *xvsy_p_pt3_binm3 = new TH2D("xvsy_p_pt3_binm3","xvsy_p_pt3_binm3",500,-100.,1
+  TH2D *xvsy_p_pt3_binm2 = new TH2D("xvsy_p_pt3_binm2","xvsy_p_pt3_binm2",1000,-200., |	  TH2D *xvsy_p_pt3_binm2 = new TH2D("xvsy_p_pt3_binm2","xvsy_p_pt3_binm2",500,-100.,1
+  TH2D *xvsy_p_pt3_binm1 = new TH2D("xvsy_p_pt3_binm1","xvsy_p_pt3_binm1",1000,-200., |	  TH2D *xvsy_p_pt3_binm1 = new TH2D("xvsy_p_pt3_binm1","xvsy_p_pt3_binm1",500,-100.,1
+  TH2D *xvsy_p_pt3_bin0 = new TH2D("xvsy_p_pt3_bin0","xvsy_p_pt3_bin0",1000,-200.,200 |	  TH2D *xvsy_p_pt3_bin0 = new TH2D("xvsy_p_pt3_bin0","xvsy_p_pt3_bin0",500,-100.,100.
+  TH2D *xvsy_p_pt3_binp1 = new TH2D("xvsy_p_pt3_binp1","xvsy_p_pt3_binp1",1000,-200., |	  TH2D *xvsy_p_pt3_binp1 = new TH2D("xvsy_p_pt3_binp1","xvsy_p_pt3_binp1",500,-100.,1
+  TH2D *xvsy_p_pt3_binp2 = new TH2D("xvsy_p_pt3_binp2","xvsy_p_pt3_binp2",1000,-200., |	  TH2D *xvsy_p_pt3_binp2 = new TH2D("xvsy_p_pt3_binp2","xvsy_p_pt3_binp2",500,-100.,1
+  TH2D *xvsy_p_pt3_binp3 = new TH2D("xvsy_p_pt3_binp3","xvsy_p_pt3_binp3",1000,-200., |	  TH2D *xvsy_p_pt3_binp3 = new TH2D("xvsy_p_pt3_binp3","xvsy_p_pt3_binp3",500,-100.,1
+  TH2D *xvsy_p_pt3_binp4 = new TH2D("xvsy_p_pt3_binp4","xvsy_p_pt3_binp4",1000,-200., |	  TH2D *xvsy_p_pt3_binp4 = new TH2D("xvsy_p_pt3_binp4","xvsy_p_pt3_binp4",500,-100.,1
+  TProfile *eps_x_rapidity_ptcut1_cent_pr_h = new TProfile("eps_x_rapidity_ptcut1_cen |	  TProfile *eps_x_rapidity_ptcut1_cent_pr_h = new TProfile("eps_x_rapidity_ptcut1_cen
+  TProfile *eps_x_rapidity_ptcut2_cent_pr_h = new TProfile("eps_x_rapidity_ptcut2_cen |	  TProfile *eps_x_rapidity_ptcut2_cent_pr_h = new TProfile("eps_x_rapidity_ptcut2_cen
+  TProfile *eps_x_rapidity_ptcut1_mid_pr_h = new TProfile("eps_x_rapidity_ptcut1_mid_ |	  TProfile *eps_x_rapidity_ptcut1_mid_pr_h = new TProfile("eps_x_rapidity_ptcut1_mid_
+  TProfile *eps_x_rapidity_ptcut2_mid_pr_h = new TProfile("eps_x_rapidity_ptcut2_mid_ |	  TProfile *eps_x_rapidity_ptcut2_mid_pr_h = new TProfile("eps_x_rapidity_ptcut2_mid_
+  TProfile *eps_x_rapidity_ptcut1_periph_pr_h = new TProfile("eps_x_rapidity_ptcut1_p |	  TProfile *eps_x_rapidity_ptcut1_periph_pr_h = new TProfile("eps_x_rapidity_ptcut1_p
+  TProfile *eps_x_rapidity_ptcut2_periph_pr_h = new TProfile("eps_x_rapidity_ptcut2_p |	  TProfile *eps_x_rapidity_ptcut2_periph_pr_h = new TProfile("eps_x_rapidity_ptcut2_p
+										      |
+  TProfile *eps_x_pt_ycut1_cent_pr_h = new TProfile("eps_x_pt_ycut1_cent_pr_h","eps_x |	  TProfile *eps_x_pt_ycut1_cent_pr_h = new TProfile("eps_x_pt_ycut1_cent_pr_h","eps_x
+  TProfile *eps_x_pt_ycut1_mid_pr_h = new TProfile("eps_x_pt_ycut1_mid_pr_h","eps_x_p |	  TProfile *eps_x_pt_ycut1_mid_pr_h = new TProfile("eps_x_pt_ycut1_mid_pr_h","eps_x_p
+  TProfile *eps_x_pt_ycut1_periph_pr_h = new TProfile("eps_x_pt_ycut1_periph_pr_h","e |	  TProfile *eps_x_pt_ycut1_periph_pr_h = new TProfile("eps_x_pt_ycut1_periph_pr_h","e
+  TProfile *eps_x_b_ycut1_ptcut1_pr_h = new TProfile("eps_x_b_ycut1_ptcut1_pr_h","eps |	  TProfile *eps_x_b_ycut1_ptcut1_pr_h = new TProfile("eps_x_b_ycut1_ptcut1_pr_h","eps
+  TProfile *eps_x_b_ycut1_ptcut2_pr_h = new TProfile("eps_x_b_ycut1_ptcut2_pr_h","eps |	  TProfile *eps_x_b_ycut1_ptcut2_pr_h = new TProfile("eps_x_b_ycut1_ptcut2_pr_h","eps
+  TProfile *eps_y_rapidity_ptcut1_cent_pr_h = new TProfile("eps_y_rapidity_ptcut1_cen |	  TProfile *eps_y_rapidity_ptcut1_cent_pr_h = new TProfile("eps_y_rapidity_ptcut1_cen
+  TProfile *eps_y_rapidity_ptcut2_cent_pr_h = new TProfile("eps_y_rapidity_ptcut2_cen |	  TProfile *eps_y_rapidity_ptcut2_cent_pr_h = new TProfile("eps_y_rapidity_ptcut2_cen
+  TProfile *eps_y_rapidity_ptcut1_mid_pr_h = new TProfile("eps_y_rapidity_ptcut1_mid_ |	  TProfile *eps_y_rapidity_ptcut1_mid_pr_h = new TProfile("eps_y_rapidity_ptcut1_mid_
+  TProfile *eps_y_rapidity_ptcut2_mid_pr_h = new TProfile("eps_y_rapidity_ptcut2_mid_ |	  TProfile *eps_y_rapidity_ptcut2_mid_pr_h = new TProfile("eps_y_rapidity_ptcut2_mid_
+  TProfile *eps_y_rapidity_ptcut1_periph_pr_h = new TProfile("eps_y_rapidity_ptcut1_p |	  TProfile *eps_y_rapidity_ptcut1_periph_pr_h = new TProfile("eps_y_rapidity_ptcut1_p
+  TProfile *eps_y_rapidity_ptcut2_periph_pr_h = new TProfile("eps_y_rapidity_ptcut2_p |	  TProfile *eps_y_rapidity_ptcut2_periph_pr_h = new TProfile("eps_y_rapidity_ptcut2_p
+										      |
+  TProfile *eps_y_pt_ycut1_cent_pr_h = new TProfile("eps_y_pt_ycut1_cent_pr_h","eps_y |	  TProfile *eps_y_pt_ycut1_cent_pr_h = new TProfile("eps_y_pt_ycut1_cent_pr_h","eps_y
+  TProfile *eps_y_pt_ycut1_mid_pr_h = new TProfile("eps_y_pt_ycut1_mid_pr_h","eps_y_p |	  TProfile *eps_y_pt_ycut1_mid_pr_h = new TProfile("eps_y_pt_ycut1_mid_pr_h","eps_y_p
+  TProfile *eps_y_pt_ycut1_periph_pr_h = new TProfile("eps_y_pt_ycut1_periph_pr_h","e |	  TProfile *eps_y_pt_ycut1_periph_pr_h = new TProfile("eps_y_pt_ycut1_periph_pr_h","e
+  TProfile *eps_y_b_ycut1_ptcut1_pr_h = new TProfile("eps_y_b_ycut1_ptcut1_pr_h","eps |	  TProfile *eps_y_b_ycut1_ptcut1_pr_h = new TProfile("eps_y_b_ycut1_ptcut1_pr_h","eps
+  TProfile *eps_y_b_ycut1_ptcut2_pr_h = new TProfile("eps_y_b_ycut1_ptcut2_pr_h","eps |	  TProfile *eps_y_b_ycut1_ptcut2_pr_h = new TProfile("eps_y_b_ycut1_ptcut2_pr_h","eps
+  TProfile *rsq_rapidity_ptcut1_cent_pr_h = new TProfile("rsq_rapidity_ptcut1_cent_pr |	  TProfile *rsq_rapidity_ptcut1_cent_pr_h = new TProfile("rsq_rapidity_ptcut1_cent_pr
+  TProfile *rsq_rapidity_ptcut2_cent_pr_h = new TProfile("rsq_rapidity_ptcut2_cent_pr |	  TProfile *rsq_rapidity_ptcut2_cent_pr_h = new TProfile("rsq_rapidity_ptcut2_cent_pr
+  TProfile *rsq_rapidity_ptcut1_mid_pr_h = new TProfile("rsq_rapidity_ptcut1_mid_pr_h |	  TProfile *rsq_rapidity_ptcut1_mid_pr_h = new TProfile("rsq_rapidity_ptcut1_mid_pr_h
+  TProfile *rsq_rapidity_ptcut2_mid_pr_h = new TProfile("rsq_rapidity_ptcut2_mid_pr_h |	  TProfile *rsq_rapidity_ptcut2_mid_pr_h = new TProfile("rsq_rapidity_ptcut2_mid_pr_h
+  TProfile *rsq_rapidity_ptcut1_periph_pr_h = new TProfile("rsq_rapidity_ptcut1_perip |	  TProfile *rsq_rapidity_ptcut1_periph_pr_h = new TProfile("rsq_rapidity_ptcut1_perip
+  TProfile *rsq_rapidity_ptcut2_periph_pr_h = new TProfile("rsq_rapidity_ptcut2_perip |	  TProfile *rsq_rapidity_ptcut2_periph_pr_h = new TProfile("rsq_rapidity_ptcut2_perip
+										      |
+  TProfile *rsq_pt_ycut1_cent_pr_h = new TProfile("rsq_pt_ycut1_cent_pr_h","rsq_pt_yc |	  TProfile *rsq_pt_ycut1_cent_pr_h = new TProfile("rsq_pt_ycut1_cent_pr_h","rsq_pt_yc
+  TProfile *rsq_pt_ycut1_mid_pr_h = new TProfile("rsq_pt_ycut1_mid_pr_h","rsq_pt_ycut |	  TProfile *rsq_pt_ycut1_mid_pr_h = new TProfile("rsq_pt_ycut1_mid_pr_h","rsq_pt_ycut
+  TProfile *rsq_pt_ycut1_periph_pr_h = new TProfile("rsq_pt_ycut1_periph_pr_h","rsq_p |	  TProfile *rsq_pt_ycut1_periph_pr_h = new TProfile("rsq_pt_ycut1_periph_pr_h","rsq_p
+  TProfile *rsq_b_ycut1_ptcut1_pr_h = new TProfile("rsq_b_ycut1_ptcut1_pr_h","rsq_b_y |	  TProfile *rsq_b_ycut1_ptcut1_pr_h = new TProfile("rsq_b_ycut1_ptcut1_pr_h","rsq_b_y
+  TProfile *rsq_b_ycut1_ptcut2_pr_h = new TProfile("rsq_b_ycut1_ptcut2_pr_h","rsq_b_y |	  TProfile *rsq_b_ycut1_ptcut2_pr_h = new TProfile("rsq_b_ycut1_ptcut2_pr_h","rsq_b_y
+										      >	TProfile3D *rvsphivspr_3D_cent_binm4 = new TProfile3D("rvsphivspr_3D_cent_binm4","rvs
+										      >	TProfile3D *rvsphivspth_3D_cent_binm4 = new TProfile3D("rvsphivspth_3D_cent_binm4","r
+										      >	TProfile3D *rvsphivspz_3D_cent_binm4 = new TProfile3D("rvsphivspz_3D_cent_binm4","rvs
+										      >	TProfile3D *rvsphivspr_3D_cent_binm3 = new TProfile3D("rvsphivspr_3D_cent_binm3","rvs
+										      >	TProfile3D *rvsphivspth_3D_cent_binm3 = new TProfile3D("rvsphivspth_3D_cent_binm3","r
+										      >	TProfile3D *rvsphivspz_3D_cent_binm3 = new TProfile3D("rvsphivspz_3D_cent_binm3","rvs
+										      >	TProfile3D *rvsphivspr_3D_cent_binm2 = new TProfile3D("rvsphivspr_3D_cent_binm2","rvs
+										      >	TProfile3D *rvsphivspth_3D_cent_binm2 = new TProfile3D("rvsphivspth_3D_cent_binm2","r
+										      >	TProfile3D *rvsphivspz_3D_cent_binm2 = new TProfile3D("rvsphivspz_3D_cent_binm2","rvs
+										      >	TProfile3D *rvsphivspr_3D_cent_binm1 = new TProfile3D("rvsphivspr_3D_cent_binm1","rvs
+										      >	TProfile3D *rvsphivspth_3D_cent_binm1 = new TProfile3D("rvsphivspth_3D_cent_binm1","r
+										      >	TProfile3D *rvsphivspz_3D_cent_binm1 = new TProfile3D("rvsphivspz_3D_cent_binm1","rvs
+										      >	TProfile3D *rvsphivspr_3D_cent_bin0 = new TProfile3D("rvsphivspr_3D_cent_bin0","rvsph
+										      >	TProfile3D *rvsphivspth_3D_cent_bin0 = new TProfile3D("rvsphivspth_3D_cent_bin0","rvs
+										      >	TProfile3D *rvsphivspz_3D_cent_bin0 = new TProfile3D("rvsphivspz_3D_cent_bin0","rvstv
+										      >	TProfile3D *rvsphivspr_3D_cent_binp4 = new TProfile3D("rvsphivspr_3D_cent_binp4","rvs
+										      >	TProfile3D *rvsphivspth_3D_cent_binp4 = new TProfile3D("rvsphivspth_3D_cent_binp4","r
+										      >	TProfile3D *rvsphivspz_3D_cent_binp4 = new TProfile3D("rvsphivspz_3D_cent_binp4","rvs
+										      >	TProfile3D *rvsphivspr_3D_cent_binp3 = new TProfile3D("rvsphivspr_3D_cent_binp3","rvs
+										      >	TProfile3D *rvsphivspth_3D_cent_binp3 = new TProfile3D("rvsphivspth_3D_cent_binp3","r
+										      >	TProfile3D *rvsphivspz_3D_cent_binp3 = new TProfile3D("rvsphivspz_3D_cent_binp3","rvs
+										      >	TProfile3D *rvsphivspr_3D_cent_binp2 = new TProfile3D("rvsphivspr_3D_cent_binp2","rvs
+										      >	TProfile3D *rvsphivspth_3D_cent_binp2 = new TProfile3D("rvsphivspth_3D_cent_binp2","r
+										      >	TProfile3D *rvsphivspz_3D_cent_binp2 = new TProfile3D("rvsphivspz_3D_cent_binp2","rvs
+										      >	TProfile3D *rvsphivspr_3D_cent_binp1 = new TProfile3D("rvsphivspr_3D_cent_binp1","rvs
+										      >	TProfile3D *rvsphivspth_3D_cent_binp1 = new TProfile3D("rvsphivspth_3D_cent_binp1","r
+										      >	TProfile3D *rvsphivspz_3D_cent_binp1 = new TProfile3D("rvsphivspz_3D_cent_binp1","rvs
+										      >	TProfile3D *rvsphivspr_3D_mid_binm4 = new TProfile3D("rvsphivspr_3D_mid_binm4","rvsph
+										      >	TProfile3D *rvsphivspth_3D_mid_binm4 = new TProfile3D("rvsphivspth_3D_mid_binm4","rvs
+										      >	TProfile3D *rvsphivspz_3D_mid_binm4 = new TProfile3D("rvsphivspz_3D_mid_binm4","rvstv
+										      >	TProfile3D *rvsphivspr_3D_mid_binm3 = new TProfile3D("rvsphivspr_3D_mid_binm3","rvsph
+										      >	TProfile3D *rvsphivspth_3D_mid_binm3 = new TProfile3D("rvsphivspth_3D_mid_binm3","rvs
+										      >	TProfile3D *rvsphivspz_3D_mid_binm3 = new TProfile3D("rvsphivspz_3D_mid_binm3","rvstv
+										      >	TProfile3D *rvsphivspr_3D_mid_binm2 = new TProfile3D("rvsphivspr_3D_mid_binm2","rvsph
+										      >	TProfile3D *rvsphivspth_3D_mid_binm2 = new TProfile3D("rvsphivspth_3D_mid_binm2","rvs
+										      >	TProfile3D *rvsphivspz_3D_mid_binm2 = new TProfile3D("rvsphivspz_3D_mid_binm2","rvstv
+										      >	TProfile3D *rvsphivspr_3D_mid_binm1 = new TProfile3D("rvsphivspr_3D_mid_binm1","rvsph
+										      >	TProfile3D *rvsphivspth_3D_mid_binm1 = new TProfile3D("rvsphivspth_3D_mid_binm1","rvs
+										      >	TProfile3D *rvsphivspz_3D_mid_binm1 = new TProfile3D("rvsphivspz_3D_mid_binm1","rvstv
+										      >	TProfile3D *rvsphivspr_3D_mid_bin0 = new TProfile3D("rvsphivspr_3D_mid_bin0","rvsphiv
+										      >	TProfile3D *rvsphivspth_3D_mid_bin0 = new TProfile3D("rvsphivspth_3D_mid_bin0","rvsph
+										      >	TProfile3D *rvsphivspz_3D_mid_bin0 = new TProfile3D("rvsphivspz_3D_mid_bin0","rvstvs-
+										      >	TProfile3D *rvsphivspr_3D_mid_binp4 = new TProfile3D("rvsphivspr_3D_mid_binp4","rvsph
+										      >	TProfile3D *rvsphivspth_3D_mid_binp4 = new TProfile3D("rvsphivspth_3D_mid_binp4","rvs
+										      >	TProfile3D *rvsphivspz_3D_mid_binp4 = new TProfile3D("rvsphivspz_3D_mid_binp4","rvstv
+										      >	TProfile3D *rvsphivspr_3D_mid_binp3 = new TProfile3D("rvsphivspr_3D_mid_binp3","rvsph
+										      >	TProfile3D *rvsphivspth_3D_mid_binp3 = new TProfile3D("rvsphivspth_3D_mid_binp3","rvs
+										      >	TProfile3D *rvsphivspz_3D_mid_binp3 = new TProfile3D("rvsphivspz_3D_mid_binp3","rvstv
+										      >	TProfile3D *rvsphivspr_3D_mid_binp2 = new TProfile3D("rvsphivspr_3D_mid_binp2","rvsph
+										      >	TProfile3D *rvsphivspth_3D_mid_binp2 = new TProfile3D("rvsphivspth_3D_mid_binp2","rvs
+										      >	TProfile3D *rvsphivspz_3D_mid_binp2 = new TProfile3D("rvsphivspz_3D_mid_binp2","rvstv
+										      >	TProfile3D *rvsphivspr_3D_mid_binp1 = new TProfile3D("rvsphivspr_3D_mid_binp1","rvsph
+										      >	TProfile3D *rvsphivspth_3D_mid_binp1 = new TProfile3D("rvsphivspth_3D_mid_binp1","rvs
+										      >	TProfile3D *rvsphivspz_3D_mid_binp1 = new TProfile3D("rvsphivspz_3D_mid_binp1","rvstv
+										      >	TProfile3D *rvsphivspr_3D_periph_binm4 = new TProfile3D("rvsphivspr_3D_periph_binm4",
+										      >	TProfile3D *rvsphivspth_3D_periph_binm4 = new TProfile3D("rvsphivspth_3D_periph_binm4
+										      >	TProfile3D *rvsphivspz_3D_periph_binm4 = new TProfile3D("rvsphivspz_3D_periph_binm4",
+										      >	TProfile3D *rvsphivspr_3D_periph_binm3 = new TProfile3D("rvsphivspr_3D_periph_binm3",
+										      >	TProfile3D *rvsphivspth_3D_periph_binm3 = new TProfile3D("rvsphivspth_3D_periph_binm3
+										      >	TProfile3D *rvsphivspz_3D_periph_binm3 = new TProfile3D("rvsphivspz_3D_periph_binm3",
+										      >	TProfile3D *rvsphivspr_3D_periph_binm2 = new TProfile3D("rvsphivspr_3D_periph_binm2",
+										      >	TProfile3D *rvsphivspth_3D_periph_binm2 = new TProfile3D("rvsphivspth_3D_periph_binm2
+										      >	TProfile3D *rvsphivspz_3D_periph_binm2 = new TProfile3D("rvsphivspz_3D_periph_binm2",
+										      >	TProfile3D *rvsphivspr_3D_periph_binm1 = new TProfile3D("rvsphivspr_3D_periph_binm1",
+										      >	TProfile3D *rvsphivspth_3D_periph_binm1 = new TProfile3D("rvsphivspth_3D_periph_binm1
+										      >	TProfile3D *rvsphivspz_3D_periph_binm1 = new TProfile3D("rvsphivspz_3D_periph_binm1",
+										      >	TProfile3D *rvsphivspr_3D_periph_bin0 = new TProfile3D("rvsphivspr_3D_periph_bin0","r
+										      >	TProfile3D *rvsphivspth_3D_periph_bin0 = new TProfile3D("rvsphivspth_3D_periph_bin0",
+										      >	TProfile3D *rvsphivspz_3D_periph_bin0 = new TProfile3D("rvsphivspz_3D_periph_bin0","r
+										      >	TProfile3D *rvsphivspr_3D_periph_binp4 = new TProfile3D("rvsphivspr_3D_periph_binp4",
+										      >	TProfile3D *rvsphivspth_3D_periph_binp4 = new TProfile3D("rvsphivspth_3D_periph_binp4
+										      >	TProfile3D *rvsphivspz_3D_periph_binp4 = new TProfile3D("rvsphivspz_3D_periph_binp4",
+										      >	TProfile3D *rvsphivspr_3D_periph_binp3 = new TProfile3D("rvsphivspr_3D_periph_binp3",
+										      >	TProfile3D *rvsphivspth_3D_periph_binp3 = new TProfile3D("rvsphivspth_3D_periph_binp3
+										      >	TProfile3D *rvsphivspz_3D_periph_binp3 = new TProfile3D("rvsphivspz_3D_periph_binp3",
+										      >	TProfile3D *rvsphivspr_3D_periph_binp2 = new TProfile3D("rvsphivspr_3D_periph_binp2",
+										      >	TProfile3D *rvsphivspth_3D_periph_binp2 = new TProfile3D("rvsphivspth_3D_periph_binp2
+										      >	TProfile3D *rvsphivspz_3D_periph_binp2 = new TProfile3D("rvsphivspz_3D_periph_binp2",
+										      >	TProfile3D *rvsphivspr_3D_periph_binp1 = new TProfile3D("rvsphivspr_3D_periph_binp1",
+										      >	TProfile3D *rvsphivspth_3D_periph_binp1 = new TProfile3D("rvsphivspth_3D_periph_binp1
+										      >	TProfile3D *rvsphivspz_3D_periph_binp1 = new TProfile3D("rvsphivspz_3D_periph_binp1",
+										      >	 
+										      >
+										      >	TH2D *xvsz_cent = new TH2D("xvsz_cent","xvsz_cent",1000,-200.,200.,1000,-200.,200.);
+										      >	TH2D *xvsz_mid = new TH2D("xvsz_mid","xvsz_mid",1000,-200.,200.,1000,-200.,200.);
+										      >	TH2D *xvsz_periph = new TH2D("xvsz_periph","xvsz_periph",1000,-200.,200.,1000,-200.,2
+										      >
+										      >	 TH2D *xvsz_cent_binm4 = new TH2D("xvsz_cent_binm4","xvsz_cent_binm4",1000,-200.,200.
+										      >	 TH2D *xvsz_cent_binm3 = new TH2D("xvsz_cent_binm3","xvsz_cent_binm3",1000,-200.,200.
+										      >	TH2D *xvsz_cent_binm2 = new TH2D("xvsz_cent_binm2","xvsz_cent_binm2",1000,-200.,200.,
+										      >	TH2D *xvsz_cent_binm1 = new TH2D("xvsz_cent_binm1","xvsz_cent_binm1",1000,-200.,200.,
+										      >	TH2D *xvsz_cent_bin0 = new TH2D("xvsz_cent_bin0","xvsz_cent_bin0",1000,-200.,200.,100
+										      >	TH2D *xvsz_cent_binp4 = new TH2D("xvsz_cent_binp4","xvsz_cent_binp4",1000,-200.,200.,
+										      >	TH2D *xvsz_cent_binp3 = new TH2D("xvsz_cent_binp3","xvsz_cent_binp3",1000,-200.,200.,
+										      >	TH2D *xvsz_cent_binp2 = new TH2D("xvsz_cent_binp2","xvsz_cent_binp2",1000,-200.,200.,
+										      >	TH2D *xvsz_cent_binp1 = new TH2D("xvsz_cent_binp1","xvsz_cent_binp1",1000,-200.,200.,
+										      >	TH2D *xvsz_mid_binm4 = new TH2D("xvsz_mid_binm4","xvsz_mid_binm4",1000,-200.,200.,100
+										      >	TH2D *xvsz_mid_binm3 = new TH2D("xvsz_mid_binm3","xvsz_mid_binm3",1000,-200.,200.,100
+										      >	TH2D *xvsz_mid_binm2 = new TH2D("xvsz_mid_binm2","xvsz_mid_binm2",1000,-200.,200.,100
+										      >	TH2D *xvsz_mid_binm1 = new TH2D("xvsz_mid_binm1","xvsz_mid_binm1",1000,-200.,200.,100
+										      >	TH2D *xvsz_mid_bin0 = new TH2D("xvsz_mid_bin0","xvsz_mid_bin0",1000,-200.,200.,1000,-
+										      >	TH2D *xvsz_mid_binp4 = new TH2D("xvsz_mid_binp4","xvsz_mid_binp4",1000,-200.,200.,100
+										      >	TH2D *xvsz_mid_binp3 = new TH2D("xvsz_mid_binp3","xvsz_mid_binp3",1000,-200.,200.,100
+										      >	TH2D *xvsz_mid_binp2 = new TH2D("xvsz_mid_binp2","xvsz_mid_binp2",1000,-200.,200.,100
+										      >	TH2D *xvsz_mid_binp1 = new TH2D("xvsz_mid_binp1","xvsz_mid_binp1",1000,-200.,200.,100
+										      >	TH2D *xvsz_periph_binm4 = new TH2D("xvsz_periph_binm4","xvsz_periph_binm4",1000,-200.
+										      >	TH2D *xvsz_periph_binm3 = new TH2D("xvsz_periph_binm3","xvsz_periph_binm3",1000,-200.
+										      >	TH2D *xvsz_periph_binm2 = new TH2D("xvsz_periph_binm2","xvsz_periph_binm2",1000,-200.
+										      >	TH2D *xvsz_periph_binm1 = new TH2D("xvsz_periph_binm1","xvsz_periph_binm1",1000,-200.
+										      >	TH2D *xvsz_periph_bin0 = new TH2D("xvsz_periph_bin0","xvsz_periph_bin0",1000,-200.,20
+										      >	TH2D *xvsz_periph_binp4 = new TH2D("xvsz_periph_binp4","xvsz_periph_binp4",1000,-200.
+										      >	TH2D *xvsz_periph_binp3 = new TH2D("xvsz_periph_binp3","xvsz_periph_binp3",1000,-200.
+										      >	TH2D *xvsz_periph_binp2 = new TH2D("xvsz_periph_binp2","xvsz_periph_binp2",1000,-200.
+										      >	TH2D *xvsz_periph_binp1 = new TH2D("xvsz_periph_binp1","xvsz_periph_binp1",1000,-200.
+										      >
+										      >
+										      >
+  // for SMASH2									      |	  // for JAM1
+      //      std::cout<<" nparticipants (for smash labeled ncoll)="<<npart_proj<<std |	      //      std::cout<<" nparticipants (for jam1 labeled npart_prog, npart_targ=0)=
+        TLeaf * leaf_PID      = chain -> GetLeaf ( "pid" );			      |	        TLeaf * leaf_PID      = chain -> GetLeaf ( "pdgcode" );
+        TLeaf * leaf_P0       = chain -> GetLeaf ( "p0" );			      <
+										      >		TLeaf * leaf_P0       = chain -> GetLeaf ( "p0" );
+	p0_in = leaf_P0 -> GetValue ( itrack );					      <
+										      >		p0_in = leaf_P0 -> GetValue ( itrack );
+										      >		//	Double_t     frx = leaf_frx -> GetValue ( itrack );
+										      >		//	Double_t     fry = leaf_fry -> GetValue ( itrack );
+										      >		//	Double_t     frz = leaf_frz -> GetValue ( itrack );
+										      >		//	Double_t     frt = leaf_frt -> GetValue ( itrack );
+										      >		
+    //    std::cout<<" filling b_impact="<<b_impact<<" bmin="<<bmin<<" bmax="<<bmax<< |	    //    std::cout<<" filling b_impact="<<b_impact<<std::endl;
+      if(abs(rapidity[i])>0.10)iybin=1*rapidity[i]/abs(rapidity[i]);		      |	      if(abs(rapidity[i]/ybeam)>0.10)iybin=1*rapidity[i]/abs(rapidity[i]);
+      if(abs(rapidity[i])>0.35)iybin=2*rapidity[i]/abs(rapidity[i]);		      |	      if(abs(rapidity[i]/ybeam)>0.35)iybin=2*rapidity[i]/abs(rapidity[i]);
+      if(abs(rapidity[i])>0.60)iybin=3*rapidity[i]/abs(rapidity[i]);		      |	      if(abs(rapidity[i]/ybeam)>0.60)iybin=3*rapidity[i]/abs(rapidity[i]);
+      if(abs(rapidity[i])>0.85)iybin=4*rapidity[i]/abs(rapidity[i]);		      |	      if(abs(rapidity[i]/ybeam)>0.85)iybin=4*rapidity[i]/abs(rapidity[i]);
+      // recenter (from xy plots) for SMASH Aug 1, 2022. from running plotshams2xy (d |	// old values - use these July 14, 2022
+										      >	      // recenter (from xy plots)
+										      >	      double xx0=0;
+										      >	      double yy0=0;
+										      >	      if(iybin==-4 && iptbin==0){ xx0=-6.355;  yy0=0.;}
+										      >	      if(iybin==-3 && iptbin==0){ xx0=-6.241;  yy0=0.;}
+										      >	      if(iybin==-2 && iptbin==0){ xx0=-3.480;  yy0=0.;}
+										      >	      if(iybin==-1 && iptbin==0){ xx0=-1.422;  yy0=0.;}
+										      >	      if(iybin==0 && iptbin==0){ xx0=0.;  yy0=0.;}
+										      >	      if(iybin==1 && iptbin==0){ xx0=1.422;  yy0=0.;}
+										      >	      if(iybin==2 && iptbin==0){ xx0=3.480;  yy0=0.;}
+										      >	      if(iybin==3 && iptbin==0){ xx0=6.241;  yy0=0.;}
+										      >	      if(iybin==4 && iptbin==0){ xx0=6.355;  yy0=0.;}				     
+										      >
+										      >	      if(iybin==-4 && iptbin==1){ xx0=-6.521;  yy0=0.;}
+										      >	      if(iybin==-3 && iptbin==1){ xx0=-6.361;  yy0=0.;}
+										      >	      if(iybin==-2 && iptbin==1){ xx0=-3.675;  yy0=0.;}
+										      >	      if(iybin==-1 && iptbin==1){ xx0=-1.754;  yy0=0.;}
+										      >	      if(iybin==0 && iptbin==1){ xx0=0.;  yy0=0.;}
+										      >	      if(iybin==1 && iptbin==1){ xx0=1.754;  yy0=0.;}
+										      >	      if(iybin==2 && iptbin==1){ xx0=3.675;  yy0=0.;}
+										      >	      if(iybin==3 && iptbin==1){ xx0=6.361;  yy0=0.;}
+										      >	      if(iybin==4 && iptbin==1){ xx0=6.521;  yy0=0.;}				     
+										      >
+										      >	      if(iybin==-4 && iptbin==2){ xx0=-7.991;  yy0=0.;}
+										      >	      if(iybin==-3 && iptbin==2){ xx0=-7.814;  yy0=0.;}
+										      >	      if(iybin==-2 && iptbin==2){ xx0=-5.786;  yy0=0.;}
+										      >	      if(iybin==-1 && iptbin==2){ xx0=-3.332;  yy0=0.;}
+										      >	      if(iybin==0 && iptbin==2){ xx0=0.;  yy0=0.;}
+										      >	      if(iybin==1 && iptbin==2){ xx0=3.332;  yy0=0.;}
+										      >	      if(iybin==2 && iptbin==2){ xx0=5.786;  yy0=0.;}
+										      >	      if(iybin==3 && iptbin==2){ xx0=7.814;  yy0=0.;}
+										      >	      if(iybin==4 && iptbin==2){ xx0=7.991;  yy0=0.;}				     
+										      >
+										      >	      if(iybin==-4 && iptbin==3){ xx0=-13.617;  yy0=0.;}
+										      >	      if(iybin==-3 && iptbin==3){ xx0=-11.830;  yy0=0.;}
+										      >	      if(iybin==-2 && iptbin==3){ xx0=-8.495;  yy0=0.;}
+										      >	      if(iybin==-1 && iptbin==3){ xx0=-4.700;  yy0=0.;}
+										      >	      if(iybin==0 && iptbin==3){ xx0=0.;  yy0=0.;}
+										      >	      if(iybin==1 && iptbin==3){ xx0=4.700;  yy0=0.;}
+										      >	      if(iybin==2 && iptbin==3){ xx0=8.495;  yy0=0.;}
+										      >	      if(iybin==3 && iptbin==3){ xx0=11.830;  yy0=0.;}
+										      >	      if(iybin==4 && iptbin==3){ xx0=13.617;  yy0=0.;}
+										      >
+										      >	      // rsqmax also from x-y plots
+										      >	      double rsqmax=0;
+										      >	      if(iybin==-4 && iptbin==0){ rsqmax=6.075 ;} 
+										      >	      if(iybin==-3 && iptbin==0){ rsqmax=6.178 ;}   
+										      >	      if(iybin==-2 && iptbin==0){ rsqmax=7.638 ;}   
+										      >	      if(iybin==-1 && iptbin==0){ rsqmax=7.475 ;}   
+										      >	      if(iybin==0 && iptbin==0){ rsqmax=7.556 ;}    
+										      >	      if(iybin==1 && iptbin==0){ rsqmax=7.475 ;}    
+										      >	      if(iybin==2 && iptbin==0){ rsqmax=7.638 ;}    
+										      >	      if(iybin==3 && iptbin==0){ rsqmax=6.178 ;}    
+										      >	      if(iybin==4 && iptbin==0){ rsqmax=6.075 ;}    
+										      >	      
+										      >	      if(iybin==-4 && iptbin==1){ rsqmax=6.394 ;}   
+										      >	      if(iybin==-3 && iptbin==1){ rsqmax=7.241 ;}   
+										      >	      if(iybin==-2 && iptbin==1){ rsqmax=11.782 ;}   
+										      >	      if(iybin==-1 && iptbin==1){ rsqmax=13.167 ;}   
+										      >	      if(iybin==0 && iptbin==1){ rsqmax=13.822 ;}    
+										      >	      if(iybin==1 && iptbin==1){ rsqmax=13.167 ;}    
+										      >	      if(iybin==2 && iptbin==1){ rsqmax=11.782 ;}    
+										      >	      if(iybin==3 && iptbin==1){ rsqmax=7.241 ;}    
+										      >	      if(iybin==4 && iptbin==1){ rsqmax=6.394 ;}    
+										      >
+										      >	      if(iybin==-4 && iptbin==2){ rsqmax=11.842 ;}   
+										      >	      if(iybin==-3 && iptbin==2){ rsqmax=18.870 ;}   
+										      >	      if(iybin==-2 && iptbin==2){ rsqmax=26.792 ;}   
+										      >	      if(iybin==-1 && iptbin==2){ rsqmax=31.493 ;}   
+										      >	      if(iybin==0 && iptbin==2){ rsqmax=34.015 ;}    
+										      >	      if(iybin==1 && iptbin==2){ rsqmax=31.493 ;}    
+										      >	      if(iybin==2 && iptbin==2){ rsqmax=26.792 ;}    
+										      >	      if(iybin==3 && iptbin==2){ rsqmax=18.870 ;}    
+										      >	      if(iybin==4 && iptbin==2){ rsqmax=11.842 ;}    
+										      >
+										      >	      if(iybin==-4 && iptbin==3){ rsqmax=25.471 ;}   
+										      >	      if(iybin==-3 && iptbin==3){ rsqmax=33.599 ;}   
+										      >	      if(iybin==-2 && iptbin==3){ rsqmax=41.697 ;}   
+										      >	      if(iybin==-1 && iptbin==3){ rsqmax=47.842 ;}   
+										      >	      if(iybin==0 && iptbin==3){ rsqmax=51.307 ;}    
+										      >	      if(iybin==1 && iptbin==3){ rsqmax=47.482 ;}    
+										      >	      if(iybin==2 && iptbin==3){ rsqmax=41.697 ;}    
+										      >	      if(iybin==3 && iptbin==3){ rsqmax=33.599 ;}    
+										      >	      if(iybin==4 && iptbin==3){ rsqmax=25.471 ;}    
+										      >	      // */
+										      >
+										      >
+										      >	      /*
+										      >		// decide not to use these - July 14, 2022
+										      >	      // recenter and get rsqmax(from xy plots)
+										      >	// centrality dependent new values
+      // FOR SMASH								      |	      // cent
+      if(iptbin==0 && iybin== -4 ){ xx0= -7.49164; yy0=0.0;  rsqmax=15.825;}	      |	      if(cent){
+      if(iptbin==0 && iybin== -3 ){ xx0= -7.33027; yy0=0.0;  rsqmax=17.093;}	      |		if(iptbin==0 && -abs(iybin)==-4)
+      if(iptbin==0 && iybin== -2 ){ xx0= -3.9663; yy0=0.0;  rsqmax=19.0204;}	      |		  { xx0= -6.10648; yy0=0.00432883; rsqmax=6.29619;}
+      if(iptbin==0 && iybin== -1 ){ xx0= -1.94406; yy0=0.0;  rsqmax=20.8374;}	      |		if(iptbin==0 && -abs(iybin)==-3)
+      if(iptbin==0 && iybin== 0 ){ xx0= 0.0140442; yy0=0.0;  rsqmax=21.9286;}	      |		  { xx0= -4.315; yy0=0.0054519; rsqmax=8.29453;}
+      										      |		if(iptbin==0 && -abs(iybin)==-2)
+      if(iptbin==1 && iybin== -4 ){ xx0= -9.42441; yy0=0.0;  rsqmax=28.5204;}	      |		  { xx0= -1.80411; yy0=-0.00687747; rsqmax=8.22675;}
+      if(iptbin==1 && iybin== -3 ){ xx0= -9.74216; yy0=0.0;  rsqmax=33.6741;}	      |		if(iptbin==0 && -abs(iybin)==-1)
+      if(iptbin==1 && iybin== -2 ){ xx0= -6.44205; yy0=0.0;  rsqmax=44.8622;}	      |		  { xx0= -0.846971; yy0=-0.00370421; rsqmax=8.14884;}
+      if(iptbin==1 && iybin== -1 ){ xx0= -3.53071; yy0=0.0;  rsqmax=50.8192;}	      |		if(iptbin==0 && -abs(iybin)==0)
+      if(iptbin==1 && iybin== 0 ){ xx0= -0.00221719; yy0=0.0;  rsqmax=53.9437;}	      |		  { xx0= 0.000178331; yy0=-0.00711022; rsqmax=8.19526;}
+      										      |		if(iptbin==1 && -abs(iybin)==-4)
+      if(iptbin==2 && iybin== -4 ){ xx0= -19.7565; yy0=0.0;  rsqmax=59.9122;}	      |		  { xx0= -6.86223; yy0=-0.00178779; rsqmax=8.80093;}
+      if(iptbin==2 && iybin== -3 ){ xx0= -22.5632; yy0=0.0;  rsqmax=84.8406;}	      |		if(iptbin==1 && -abs(iybin)==-3)
+      if(iptbin==2 && iybin== -2 ){ xx0= -19.4787; yy0=0.0;  rsqmax=112.058;}	      |		  { xx0= -4.93526; yy0=0.00308182; rsqmax=11.8314;}
+      if(iptbin==2 && iybin== -1 ){ xx0= -12.4148; yy0=0.0;  rsqmax=131.653;}	      |		if(iptbin==1 && -abs(iybin)==-2)
+      if(iptbin==2 && iybin== 0 ){ xx0= 0.0095362; yy0=0.0;  rsqmax=142.633;}	      |		  { xx0= -2.28382; yy0=0.00286588; rsqmax=13.2101;}
+      										      |		if(iptbin==1 && -abs(iybin)==-1)
+      if(iptbin==3 && iybin== -4 ){ xx0= -50.7465; yy0=0.0;  rsqmax=103.447;}	      |		  { xx0= -1.10913; yy0=0.00470976; rsqmax=13.9183;}
+      if(iptbin==3 && iybin== -3 ){ xx0= -46.6321; yy0=0.0;  rsqmax=135.622;}	      |		if(iptbin==1 && -abs(iybin)==0)
+      if(iptbin==3 && iybin== -2 ){ xx0= -36.7544; yy0=0.0;  rsqmax=168.955;}	      |		  { xx0= 0.00127501; yy0=-0.00158934; rsqmax=14.388;}
+      if(iptbin==3 && iybin== -1 ){ xx0= -22.8211; yy0=0.0;  rsqmax=196.037;}	      |		if(iptbin==2 && -abs(iybin)==-4)
+      if(iptbin==3 && iybin== 0 ){ xx0= -0.0121463; yy0=0.0;  rsqmax=211.575;}	      |		  { xx0= -8.81329; yy0=-0.00275118; rsqmax=18.1409;}
+      										      |		if(iptbin==2 && -abs(iybin)==-3)
+      if(iptbin==0 && iybin== 4 ){ xx0= -7.49164; yy0=0.0;  rsqmax=15.825;}	      |		  { xx0= -7.28097; yy0=0.000630962; rsqmax=24.4649;}
+      if(iptbin==0 && iybin== 3 ){ xx0= -7.33027; yy0=0.0;  rsqmax=17.093;}	      |		if(iptbin==2 && -abs(iybin)==-2)
+      if(iptbin==0 && iybin== 2 ){ xx0= -3.9663; yy0=0.0;  rsqmax=19.0204;}	      |		  { xx0= -4.81694; yy0=0.00241766; rsqmax=29.9152;}
+      if(iptbin==0 && iybin== 1 ){ xx0= -1.94406; yy0=0.0;  rsqmax=20.8374;}	      |		if(iptbin==2 && -abs(iybin)==-1)
+      										      |		  { xx0= -2.63241; yy0=0.00279941; rsqmax=33.5532;}
+      if(iptbin==1 && iybin== 4 ){ xx0= 9.42441; yy0=0.0;  rsqmax=28.5204;}	      |		if(iptbin==2 && -abs(iybin)==0)
+      if(iptbin==1 && iybin== 3 ){ xx0= 9.74216; yy0=0.0;  rsqmax=33.6741;}	      |		  { xx0= 0.0125001; yy0=-0.00574711; rsqmax=35.5537;}
+      if(iptbin==1 && iybin== 2 ){ xx0= 6.44205; yy0=0.0;  rsqmax=44.8622;}	      |		if(iptbin==3 && -abs(iybin)==-4)
+      if(iptbin==1 && iybin== 1 ){ xx0= 3.53071; yy0=0.0;  rsqmax=50.8192;}	      |		  { xx0= -12.794; yy0=-0.0138709; rsqmax=28.8553;}
+      										      |		if(iptbin==3 && -abs(iybin)==-3)
+      if(iptbin==2 && iybin== 4 ){ xx0= 19.7565; yy0=0.0;   rsqmax=59.9122;}	      |		  { xx0= -10.769; yy0=0.004374; rsqmax=36.6413;}
+      if(iptbin==2 && iybin== 3 ){ xx0= 22.5632; yy0=0.0;  rsqmax=84.8406;}	      |		if(iptbin==3 && -abs(iybin)==-2)
+      if(iptbin==2 && iybin== 2 ){ xx0= 19.4787; yy0=0.0;  rsqmax=112.058;}	      |		  { xx0= -7.60091; yy0=0.00889189; rsqmax=43.9577;}
+      if(iptbin==2 && iybin== 1 ){ xx0= 12.4148; yy0=0.0;  rsqmax=131.653;}	      |		if(iptbin==3 && -abs(iybin)==-1)
+      										      |		  { xx0= -4.14425; yy0=0.0116388; rsqmax=49.468;}
+      if(iptbin==3 && iybin== 4 ){ xx0= 50.7465; yy0=0.0;  rsqmax=103.447;}	      |		if(iptbin==3 && -abs(iybin)==0)
+      if(iptbin==3 && iybin== 3 ){ xx0= 46.6321; yy0=0.0;  rsqmax=135.622;}	      |		  { xx0= 0.030302; yy0=0.00693582; rsqmax=52.4188;}
+      if(iptbin==3 && iybin== 2 ){ xx0= 36.7544; yy0=0.0;  rsqmax=168.955;}	      |	      }
+      if(iptbin==3 && iybin== 1 ){ xx0= 22.8211; yy0=0.0;  rsqmax=196.037;}	      |
+										      >	      // mid
+										      >	      if(mid){
+										      >		if(iptbin==0 && -abs(iybin)==-4)
+										      >		  { xx0= -6.32523; yy0=-0.000606509; rsqmax=5.28175;}
+										      >		if(iptbin==0 && -abs(iybin)==-3)
+										      >		  { xx0= -6.09375; yy0=-0.00171313; rsqmax=6.00025;}
+										      >		if(iptbin==0 && -abs(iybin)==-2)
+										      >		  { xx0= -3.41757; yy0=-0.00161661; rsqmax=7.57156;}
+										      >		if(iptbin==0 && -abs(iybin)==-1)
+										      >		  { xx0= -1.58014; yy0=0.00174194; rsqmax=7.49868;}
+										      >		if(iptbin==0 && -abs(iybin)==0)
+										      >		  { xx0= -0.002111; yy0=0.00240498; rsqmax=7.53639;}
+										      >		if(iptbin==1 && -abs(iybin)==-4)
+										      >		  { xx0= -6.79297; yy0=0.000367091; rsqmax=6.41171;}
+										      >		if(iptbin==1 && -abs(iybin)==-3)
+										      >		  { xx0= -6.48472; yy0=0.000453426; rsqmax=8.24649;}
+										      >		if(iptbin==1 && -abs(iybin)==-2)
+										      >		  { xx0= -3.90424; yy0=0.00153049; rsqmax=11.8599;}
+										      >		if(iptbin==1 && -abs(iybin)==-1)
+										      >		  { xx0= -1.95001; yy0=0.000301045; rsqmax=13.1237;}
+										      >		if(iptbin==1 && -abs(iybin)==0)
+										      >		  { xx0= 0.0021564; yy0=0.00187454; rsqmax=13.7542;}
+										      >		if(iptbin==2 && -abs(iybin)==-4)
+										      >		  { xx0= -8.95958; yy0=8.62521e-05; rsqmax=13.0381;}
+										      >		if(iptbin==2 && -abs(iybin)==-3)
+										      >		  { xx0= -8.53584; yy0=0.00104123; rsqmax=19.1449;}
+										      >		if(iptbin==2 && -abs(iybin)==-2)
+										      >		  { xx0= -6.38895; yy0=-0.00674749; rsqmax=26.2281;}
+										      >		if(iptbin==2 && -abs(iybin)==-1)
+										      >		  { xx0= -3.71982; yy0=-0.00217251; rsqmax=31.0196;}
+										      >		if(iptbin==2 && -abs(iybin)==0)
+										      >		  { xx0= 0.00847015; yy0=0.00156535; rsqmax=33.5961;}
+										      >		if(iptbin==3 && -abs(iybin)==-4)
+										      >		  { xx0= -14.4328; yy0=-0.041763; rsqmax=23.5547;}
+										      >		if(iptbin==3 && -abs(iybin)==-3)
+										      >		  { xx0= -12.7808; yy0=0.000540334; rsqmax=31.7675;}
+										      >		if(iptbin==3 && -abs(iybin)==-2)
+										      >		  { xx0= -9.3126; yy0=0.00314061; rsqmax=40.2841;}
+										      >		if(iptbin==3 && -abs(iybin)==-1)
+										      >		  { xx0= -5.28499; yy0=-0.00855567; rsqmax=47.039;}
+										      >		if(iptbin==3 && -abs(iybin)==0)
+										      >		  { xx0= 0.055014; yy0=-0.00239301; rsqmax=50.9185;}
+										      >	      }
+										      >
+										      >	      // periph
+										      >	      if(periph){
+										      >		if(iptbin==0 && -abs(iybin)==-4)
+										      >		  { xx0= -6.22739; yy0=0.00103612; rsqmax=5.7063;}
+										      >		if(iptbin==0 && -abs(iybin)==-3)
+										      >		  { xx0= -6.15247; yy0=-0.00180364; rsqmax=5.84595;}
+										      >		if(iptbin==0 && -abs(iybin)==-2)
+										      >		  { xx0= -3.91881; yy0=0.00104358; rsqmax=6.97909;}
+										      >		if(iptbin==0 && -abs(iybin)==-1)
+										      >		  { xx0= -1.73563; yy0=0.0037506; rsqmax=6.63859;}
+										      >		if(iptbin==0 && -abs(iybin)==0)
+										      >		  { xx0= 0.000189277; yy0=-0.0121115; rsqmax=6.64854;}
+										      >		if(iptbin==1 && -abs(iybin)==-4)
+										      >		  { xx0= -6.44496; yy0=0.000401085; rsqmax=6.17457;}
+										      >		if(iptbin==1 && -abs(iybin)==-3)
+										      >		  { xx0= -6.34557; yy0=-0.00136266; rsqmax=6.99487;}
+										      >		if(iptbin==1 && -abs(iybin)==-2)
+										      >		  { xx0= -4.11742; yy0=-0.00439915; rsqmax=10.7374;}
+										      >		if(iptbin==1 && -abs(iybin)==-1)
+										      >		  { xx0= -2.1292; yy0=-0.00129715; rsqmax=12.2965;}
+										      >		if(iptbin==1 && -abs(iybin)==0)
+										      >		  { xx0= -0.0127723; yy0=-0.00229225; rsqmax=13.0648;}
+										      >		if(iptbin==2 && -abs(iybin)==-4)
+										      >		  { xx0= -7.67151; yy0=-0.0023229; rsqmax=10.5703;}
+										      >		if(iptbin==2 && -abs(iybin)==-3)
+										      >		  { xx0= -7.47463; yy0=0.00121528; rsqmax=15.9683;}
+										      >		if(iptbin==2 && -abs(iybin)==-2)
+										      >		  { xx0= -5.85284; yy0=0.00553109; rsqmax=23.5412;}
+										      >		if(iptbin==2 && -abs(iybin)==-1)
+										      >		  { xx0= -3.60006; yy0=0.00680248; rsqmax=28.6548;}
+										      >		if(iptbin==2 && -abs(iybin)==0)
+										      >		  { xx0= 0.00716116; yy0=0.00381326; rsqmax=31.6189;}
+										      >		if(iptbin==3 && -abs(iybin)==-4)
+										      >		  { xx0= -12.5132; yy0=-0.00871503; rsqmax=22.8475;}
+										      >		if(iptbin==3 && -abs(iybin)==-3)
+										      >		  { xx0= -11.0947; yy0=0.00123128; rsqmax=30.1141;}
+										      >		if(iptbin==3 && -abs(iybin)==-2)
+										      >		  { xx0= -7.99712; yy0=-0.00778789; rsqmax=37.9792;}
+										      >		if(iptbin==3 && -abs(iybin)==-1)
+										      >		  { xx0= -4.4486; yy0=-0.0100329; rsqmax=44.3737;}
+										      >		if(iptbin==3 && -abs(iybin)==0)
+										      >		  { xx0= 0.0952601; yy0=-0.00676576; rsqmax=48.2182;}
+										      >	      }
+										      >	      
+										      >	      yy0=0;	
+										      >	      if(iybin>0)xx0=-xx0;
+										      >	      */
+										      >	      //      if(iptbin==0){
+										      >
+										      >	      if(cent){xvsz_cent->Fill(x[i],z[i]);}
+										      >	      if(mid){xvsz_mid->Fill(x[i],z[i]);}
+										      >	      if(periph){xvsz_periph->Fill(x[i],z[i]);}
+										      >		xvsz_cent_binm4->Fill(x[i],z[i]);
+										      >		xvsz_cent_binm3->Fill(x[i],z[i]);
+										      >		xvsz_cent_binm2->Fill(x[i],z[i]);
+										      >		xvsz_cent_binm1->Fill(x[i],z[i]);
+										      >		xvsz_cent_bin0->Fill(x[i],z[i]);
+										      >		xvsz_cent_binp4->Fill(x[i],z[i]);
+										      >		xvsz_cent_binp3->Fill(x[i],z[i]);
+										      >		xvsz_cent_binp2->Fill(x[i],z[i]);
+										      >		xvsz_cent_binp1->Fill(x[i],z[i]);
+										      >		xvsz_mid_binm4->Fill(x[i],z[i]);
+										      >		xvsz_mid_binm3->Fill(x[i],z[i]);
+										      >		xvsz_mid_binm2->Fill(x[i],z[i]);
+										      >		xvsz_mid_binm1->Fill(x[i],z[i]);
+										      >		xvsz_mid_bin0->Fill(x[i],z[i]);
+										      >		xvsz_mid_binp4->Fill(x[i],z[i]);
+										      >		xvsz_mid_binp3->Fill(x[i],z[i]);
+										      >		xvsz_mid_binp2->Fill(x[i],z[i]);
+										      >		xvsz_mid_binp1->Fill(x[i],z[i]);
+										      >		xvsz_periph_binm4->Fill(x[i],z[i]);
+										      >		xvsz_periph_binm3->Fill(x[i],z[i]);
+										      >		xvsz_periph_binm2->Fill(x[i],z[i]);
+										      >		xvsz_periph_binm1->Fill(x[i],z[i]);
+										      >		xvsz_periph_bin0->Fill(x[i],z[i]);
+										      >		xvsz_periph_binp4->Fill(x[i],z[i]);
+										      >		xvsz_periph_binp3->Fill(x[i],z[i]);
+										      >		xvsz_periph_binp2->Fill(x[i],z[i]);
+										      >		xvsz_periph_binp1->Fill(x[i],z[i]);
+										      >	      }
+										      >
+										      >	      //--------------------      
+										      >	      if(cent && iybin==-4){
+										      >		rvsphivspr_3D_cent_binm4->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_cent_binm4->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_cent_binm4->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(cent && iybin==-3){
+										      >		rvsphivspr_3D_cent_binm3->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_cent_binm3->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_cent_binm3->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(cent && iybin==-2){
+										      >		rvsphivspr_3D_cent_binm2->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_cent_binm2->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_cent_binm2->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(cent && iybin==-1){
+										      >		rvsphivspr_3D_cent_binm1->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_cent_binm1->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_cent_binm1->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(cent && iybin==0){
+										      >		rvsphivspr_3D_cent_bin0->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_cent_bin0->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_cent_bin0->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(cent && iybin==4){
+										      >		rvsphivspr_3D_cent_binp4->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_cent_binp4->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_cent_binp4->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(cent && iybin==3){
+										      >		rvsphivspr_3D_cent_binp3->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_cent_binp3->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_cent_binp3->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(cent && iybin==2){
+										      >		rvsphivspr_3D_cent_binp2->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_cent_binp2->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_cent_binp2->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(cent && iybin==1){
+										      >		rvsphivspr_3D_cent_binp1->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_cent_binp1->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_cent_binp1->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(mid && iybin==-4){
+										      >		rvsphivspr_3D_mid_binm4->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_mid_binm4->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_mid_binm4->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(mid && iybin==-3){
+										      >		rvsphivspr_3D_mid_binm3->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_mid_binm3->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_mid_binm3->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(mid && iybin==-2){
+										      >		rvsphivspr_3D_mid_binm2->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_mid_binm2->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_mid_binm2->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(mid && iybin==-1){
+										      >		rvsphivspr_3D_mid_binm1->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_mid_binm1->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_mid_binm1->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(mid && iybin==0){
+										      >		rvsphivspr_3D_mid_bin0->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_mid_bin0->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_mid_bin0->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(mid && iybin==4){
+										      >		rvsphivspr_3D_mid_binp4->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_mid_binp4->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_mid_binp4->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(mid && iybin==3){
+										      >		rvsphivspr_3D_mid_binp3->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_mid_binp3->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_mid_binp3->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(mid && iybin==2){
+										      >		rvsphivspr_3D_mid_binp2->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_mid_binp2->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_mid_binp2->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(mid && iybin==1){
+										      >		rvsphivspr_3D_mid_binp1->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_mid_binp1->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_mid_binp1->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(periph && iybin==-4){
+										      >		rvsphivspr_3D_periph_binm4->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_periph_binm4->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_periph_binm4->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(periph && iybin==-3){
+										      >		rvsphivspr_3D_periph_binm3->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_periph_binm3->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_periph_binm3->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(periph && iybin==-2){
+										      >		rvsphivspr_3D_periph_binm2->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_periph_binm2->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_periph_binm2->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(periph && iybin==-1){
+										      >		rvsphivspr_3D_periph_binm1->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_periph_binm1->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_periph_binm1->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(periph && iybin==0){
+										      >		rvsphivspr_3D_periph_bin0->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_periph_bin0->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_periph_bin0->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(periph && iybin==4){
+										      >		rvsphivspr_3D_periph_binp4->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_periph_binp4->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_periph_binp4->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(periph && iybin==3){
+										      >		rvsphivspr_3D_periph_binp3->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_periph_binp3->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_periph_binp3->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(periph && iybin==2){
+										      >		rvsphivspr_3D_periph_binp2->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_periph_binp2->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_periph_binp2->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      }
+										      >	      if(periph && iybin==1){
+										      >		rvsphivspr_3D_periph_binp1->Fill(x[i],y[i],pt[i],px[i]);
+										      >		rvsphivspth_3D_periph_binp1->Fill(x[i],y[i],pt[i],py[i]);
+										      >		rvsphivspz_3D_periph_binp1->Fill(x[i],y[i],pt[i],pz[i]);
+										      >	      //      }// iptbin
+	    if(part_id[i]==2212 && rsq1<rsqmax)eps_x_rapidity_ptcut1_cent_pr_h->Fill( |		    if(part_id[i]==2212 && rsq1<rsqmax)eps_x_rapidity_ptcut1_cent_pr_h->Fill(
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut1_cent_pr_h->Fill(r |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut1_cent_pr_h->Fill(r
+	    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut1_cent_pr_h->Fill(rap |		    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut1_cent_pr_h->Fill(rap
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_x_rapidity_ptcut2_cent_pr_h->Fill(r |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_x_rapidity_ptcut2_cent_pr_h->Fill(r
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut2_cent_pr_h->Fill(r |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut2_cent_pr_h->Fill(r
+	    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut2_cent_pr_h->Fill(rap |		    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut2_cent_pr_h->Fill(rap
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_x_rapidity_ptcut1_mid_pr_h->Fill(ra |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_x_rapidity_ptcut1_mid_pr_h->Fill(ra
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut1_mid_pr_h->Fill(ra |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut1_mid_pr_h->Fill(ra
+	    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut1_mid_pr_h->Fill(rapi |		    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut1_mid_pr_h->Fill(rapi
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_x_rapidity_ptcut2_mid_pr_h->Fill(ra |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_x_rapidity_ptcut2_mid_pr_h->Fill(ra
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut2_mid_pr_h->Fill(ra |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut2_mid_pr_h->Fill(ra
+	    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut2_mid_pr_h->Fill(rapi |		    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut2_mid_pr_h->Fill(rapi
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_x_rapidity_ptcut1_periph_pr_h->Fill |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_x_rapidity_ptcut1_periph_pr_h->Fill
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut1_periph_pr_h->Fill |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut1_periph_pr_h->Fill
+	    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut1_periph_pr_h->Fill(r |		    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut1_periph_pr_h->Fill(r
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_x_rapidity_ptcut2_periph_pr_h->Fill |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_x_rapidity_ptcut2_periph_pr_h->Fill
+	    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut2_periph_pr_h->Fill |		    if(part_id[i]==2212&& rsq1<rsqmax)eps_y_rapidity_ptcut2_periph_pr_h->Fill
+	    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut2_periph_pr_h->Fill(r |		    if(part_id[i]==2212&& rsq1<rsqmax)rsq_rapidity_ptcut2_periph_pr_h->Fill(r
+	if(abs(rapidity[i])<ycut1){						      |		if(abs(rapidity[i]/ybeam)<ycut1){
+	if(abs(rapidity[i])<ycut1){						      |		if(abs(rapidity[i]/ybeam)<ycut1){
+  TFile *myfile = new TFile("smash2ana1.root","RECREATE");			      |	  TFile *myfile = new TFile("smash2ana7.root","RECREATE");
+										      >
+										      >	rvsphivspr_3D_cent_binm4->Write();
+										      >	rvsphivspth_3D_cent_binm4->Write();
+										      >	rvsphivspz_3D_cent_binm4->Write();
+										      >	rvsphivspr_3D_cent_binm3->Write();
+										      >	rvsphivspth_3D_cent_binm3->Write();
+										      >	rvsphivspz_3D_cent_binm3->Write();
+										      >	rvsphivspr_3D_cent_binm2->Write();
+										      >	rvsphivspth_3D_cent_binm2->Write();
+										      >	rvsphivspz_3D_cent_binm2->Write();
+										      >	rvsphivspr_3D_cent_binm1->Write();
+										      >	rvsphivspth_3D_cent_binm1->Write();
+										      >	rvsphivspz_3D_cent_binm1->Write();
+										      >	rvsphivspr_3D_cent_bin0->Write();
+										      >	rvsphivspth_3D_cent_bin0->Write();
+										      >	rvsphivspz_3D_cent_bin0->Write();
+										      >	rvsphivspr_3D_cent_binp4->Write();
+										      >	rvsphivspth_3D_cent_binp4->Write();
+										      >	rvsphivspz_3D_cent_binp4->Write();
+										      >	rvsphivspr_3D_cent_binp3->Write();
+										      >	rvsphivspth_3D_cent_binp3->Write();
+										      >	rvsphivspz_3D_cent_binp3->Write();
+										      >	rvsphivspr_3D_cent_binp2->Write();
+										      >	rvsphivspth_3D_cent_binp2->Write();
+										      >	rvsphivspz_3D_cent_binp2->Write();
+										      >	rvsphivspr_3D_cent_binp1->Write();
+										      >	rvsphivspth_3D_cent_binp1->Write();
+										      >	rvsphivspz_3D_cent_binp1->Write();
+										      >	rvsphivspr_3D_mid_binm4->Write();
+										      >	rvsphivspth_3D_mid_binm4->Write();
+										      >	rvsphivspz_3D_mid_binm4->Write();
+										      >	rvsphivspr_3D_mid_binm3->Write();
+										      >	rvsphivspth_3D_mid_binm3->Write();
+										      >	rvsphivspz_3D_mid_binm3->Write();
+										      >	rvsphivspr_3D_mid_binm2->Write();
+										      >	rvsphivspth_3D_mid_binm2->Write();
+										      >	rvsphivspz_3D_mid_binm2->Write();
+										      >	rvsphivspr_3D_mid_binm1->Write();
+										      >	rvsphivspth_3D_mid_binm1->Write();
+										      >	rvsphivspz_3D_mid_binm1->Write();
+										      >	rvsphivspr_3D_mid_bin0->Write();
+										      >	rvsphivspth_3D_mid_bin0->Write();
+										      >	rvsphivspz_3D_mid_bin0->Write();
+										      >	rvsphivspr_3D_mid_binp4->Write();
+										      >	rvsphivspth_3D_mid_binp4->Write();
+										      >	rvsphivspz_3D_mid_binp4->Write();
+										      >	rvsphivspr_3D_mid_binp3->Write();
+										      >	rvsphivspth_3D_mid_binp3->Write();
+										      >	rvsphivspz_3D_mid_binp3->Write();
+										      >	rvsphivspr_3D_mid_binp2->Write();
+										      >	rvsphivspth_3D_mid_binp2->Write();
+										      >	rvsphivspz_3D_mid_binp2->Write();
+										      >	rvsphivspr_3D_mid_binp1->Write();
+										      >	rvsphivspth_3D_mid_binp1->Write();
+										      >	rvsphivspz_3D_mid_binp1->Write();
+										      >	rvsphivspr_3D_periph_binm4->Write();
+										      >	rvsphivspth_3D_periph_binm4->Write();
+										      >	rvsphivspz_3D_periph_binm4->Write();
+										      >	rvsphivspr_3D_periph_binm3->Write();
+										      >	rvsphivspth_3D_periph_binm3->Write();
+										      >	rvsphivspz_3D_periph_binm3->Write();
+										      >	rvsphivspr_3D_periph_binm2->Write();
+										      >	rvsphivspth_3D_periph_binm2->Write();
+										      >	rvsphivspz_3D_periph_binm2->Write();
+										      >	rvsphivspr_3D_periph_binm1->Write();
+										      >	rvsphivspth_3D_periph_binm1->Write();
+										      >	rvsphivspz_3D_periph_binm1->Write();
+										      >	rvsphivspr_3D_periph_bin0->Write();
+										      >	rvsphivspth_3D_periph_bin0->Write();
+										      >	rvsphivspz_3D_periph_bin0->Write();
+										      >	rvsphivspr_3D_periph_binp4->Write();
+										      >	rvsphivspth_3D_periph_binp4->Write();
+										      >	rvsphivspz_3D_periph_binp4->Write();
+										      >	rvsphivspr_3D_periph_binp3->Write();
+										      >	rvsphivspth_3D_periph_binp3->Write();
+										      >	rvsphivspz_3D_periph_binp3->Write();
+										      >	rvsphivspr_3D_periph_binp2->Write();
+										      >	rvsphivspth_3D_periph_binp2->Write();
+										      >	rvsphivspz_3D_periph_binp2->Write();
+										      >	rvsphivspr_3D_periph_binp1->Write();
+										      >	rvsphivspth_3D_periph_binp1->Write();
+										      >	rvsphivspz_3D_periph_binp1->Write();
+										      >
+										      >	 xvsz_cent->Write();
+										      >	 xvsz_mid->Write();
+										      >	 xvsz_periph->Write();
+										      >	 
+										      >	xvsz_cent_binm4->Write();
+										      >	xvsz_cent_binm3->Write();
+										      >	xvsz_cent_binm2->Write();
+										      >	xvsz_cent_binm1->Write();
+										      >	xvsz_cent_bin0->Write();
+										      >	xvsz_cent_binp4->Write();
+										      >	xvsz_cent_binp3->Write();
+										      >	xvsz_cent_binp2->Write();
+										      >	xvsz_cent_binp1->Write();
+										      >	xvsz_mid_binm4->Write();
+										      >	xvsz_mid_binm3->Write();
+										      >	xvsz_mid_binm2->Write();
+										      >	xvsz_mid_binm1->Write();
+										      >	xvsz_mid_bin0->Write();
+										      >	xvsz_mid_binp4->Write();
+										      >	xvsz_mid_binp3->Write();
+										      >	xvsz_mid_binp2->Write();
+										      >	xvsz_mid_binp1->Write();
+										      >	xvsz_periph_binm4->Write();
+										      >	xvsz_periph_binm3->Write();
+										      >	xvsz_periph_binm2->Write();
+										      >	xvsz_periph_binm1->Write();
+										      >	xvsz_periph_bin0->Write();
+										      >	xvsz_periph_binp4->Write();
+										      >	xvsz_periph_binp3->Write();
+										      >	xvsz_periph_binp2->Write();
+										      >	xvsz_periph_binp1->Write();
+										      >
